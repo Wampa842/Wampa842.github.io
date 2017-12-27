@@ -415,6 +415,31 @@ $(document).ready(function(event)
 	$('button.foundry-add').click(function(event)
 	{
 		foundryFormToggle(event);
-	})
+	});
+
+
+
+	$('button.moralpointstoggle').click(function(event)
+	{
+		var btn = $(event.target);
+		if(btn.hasClass('m2033'))
+		{
+			var div = $('div.moralpoints.m2033');
+			div.toggle();
+			if(div.is(':visible'))
+				btn.text('Hide Metro 2033 moral points');
+			else
+				btn.text('Show Metro 2033 moral points');
+		}
+		else if(btn.hasClass('mll'))
+		{
+			var div = $('div.moralpoints.mll');
+			div.toggle();
+			if(div.is(':visible'))
+				btn.text('Hide Metro Last Light moral points');
+			else
+				btn.text('Show Metro Last Light moral points');
+		}
+	});
 }
 );
