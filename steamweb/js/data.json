@@ -1,0 +1,14 @@
+[
+	{
+		"name": "Torment",
+		"mods": ["Hydraulic Crosshair", "Blood Rush", "Laser Sight", "Argon Scope"]
+	},
+	{
+		"name": "Violence",
+		"mods": ["Shrapnel Shot", "Bladed Rounds", "Sharpened Bullets", "Maiming Strike"]
+	},
+	{
+		"name": "[DE]Steve",
+		"mods": ["Primed Soon"]
+	}
+]

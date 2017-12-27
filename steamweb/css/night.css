@@ -1,0 +1,42 @@
+body.night
+{
+	background-color: #101010;
+	color: #858585;
+}
+body.night nav, body.night article
+{
+	background-color: #303030;
+	box-shadow: none;
+}
+body.night div.nav-right
+{
+	background-color: #303030;
+}
+body.night button
+{
+	box-shadow: 0px 0px 5px #202020;
+}
+body.night button:hover
+{
+	box-shadow: 0px 0px 10px #202020;
+}
+body.night button.daynight, body.night button.daynight:hover, body.night button.daynight:active
+{
+	box-shadow: none;
+}
+body.night input[type=text], body.night input[type=number]
+{
+	background-color: #353535;
+	color: inherit;
+	box-shadow: 0px 0px 5px #202020;
+}
+body.night div.subsection
+{
+	border-color: #202020;
+	box-shadow: none;
+}
+
+body.night tr.project-title
+{
+	background-color: #353535;
+}

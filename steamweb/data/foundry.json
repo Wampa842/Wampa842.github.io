@@ -1,0 +1,35 @@
+[
+	{
+		"id": "Vauban_Prime",
+		"name": "Vauban Prime",
+		"blueprint_drop": "Relic",
+		"blueprint": 0,
+		"components":
+			[
+				{
+					"name": "Neuroptics",
+					"drop": "Relic",
+					"required": 1,
+					"owned": 0
+				},
+				{
+					"name": "Neuroptics",
+					"drop": "Relic",
+					"required": 1,
+					"owned": 0
+				},
+				{
+					"name": "Neuroptics",
+					"drop": "Relic",
+					"required": 1,
+					"owned": 1
+				},
+				{
+					"name": "Nitain",
+					"drop": "Alerts",
+					"required": 20,
+					"owned": 34
+				}
+			]
+	}
+]

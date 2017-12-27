@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Steamweb index</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/night.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="nav-left-padding"></div>
+			<div class="nav-left">
+				<div class="nav-left-top">
+					<h1>INDEX</h1>
+				</div>
+				<div class="nav-left-bottom">
+					<a class="topshortcut" href="http://google.com"><span>The Goog</span></a>
+					<a class="topshortcut"><span>Foo</span></a>
+					<a class="topshortcut"><span>Bar</span></a>
+				</div>
+			</div>
+			<div class="nav-right">
+				<button class="daynight"><img src="res/sun.svg"></button>
+			</div>
+		</nav>
+	</header>
+	<main>
+
+
+		<article id="warframe">
+			<h2>Warframe</h2>
+			<section class="wikia">
+				<h3>Wikia</h3>
+				<input type="text" class="wikiaid">
+				<button class="wikiaid go">Go</button> <button class="wikiaid add">Add to list...</button>
+				<div style="width: 300px; display: none;" class="subsection wikiaform">
+					Add to list...<br>
+					Wikia ID: <input class="add-wikiaid" name="wikiaid" type="text"><br>
+					Name: <input class="add-wikianame" name="wikianame" type="text"><br>
+					<button class="wikiaform submit">Add</button>
+				</div>
+				<div class="subsection wikialist">
+				</div>
+			</section>
+			<section class="foundry">
+				<h3>Foundry</h3>
+				<button class="foundry-add">Add new project</button>
+				<div class="subsection foundryform" style="display: none;">
+					New foundry project<br>
+					Name: <input class="project name" name="foundryname" type="text"> ID: <input class="project id" name="foundryid" type="text"><br>
+					Blueprint: <input type="text" class="project blueprint"> <input type="number" min="0" class="project blueprint-got"><br>
+					<div class="foundrytable">
+						<table>
+							<tr>
+								<th>Component</th>
+								<th>Drop</th>
+								<th>Needed</th>
+								<th>Owned</th>
+							</tr>
+							<tr>
+								<td><input type="text" class="project comp1-name"> <a class="foundry-guess warframe comp1">F</a> <a class="foundry-guess gun comp1">G</a> <a class="foundry-guess melee comp1">M</a></td>
+								<td><input type="text" class="project comp1-drop"></td>
+								<td><input type="number" class="project comp1-need" min="0" value="0"></td>
+								<td><input type="number" class="project comp1-have" min="0" value="0"></td>
+							</tr>
+							<tr>
+								<td><input type="text" class="project comp2-name"> <a class="foundry-guess warframe comp2">F</a> <a class="foundry-guess gun comp2">G</a> <a class="foundry-guess melee comp2">M</a></td>
+								<td><input type="text" class="project comp2-drop"></td>
+								<td><input type="number" class="project comp2-need" min="0" value="0"></td>
+								<td><input type="number" class="project comp2-have" min="0" value="0"></td>
+							</tr>
+							<tr>
+								<td><input type="text" class="project comp3-name"> <a class="foundry-guess warframe comp3">F</a> <a class="foundry-guess gun comp3">G</a> <a class="foundry-guess melee comp3">M</a></td>
+								<td><input type="text" class="project comp3-drop"></td>
+								<td><input type="number" class="project comp3-need" min="0" value="0"></td>
+								<td><input type="number" class="project comp3-have" min="0" value="0"></td>
+							</tr>
+							<tr>
+								<td><input type="text" class="project comp4-name"> <a class="foundry-guess warframe comp4">F</a> <a class="foundry-guess gun comp4">G</a> <a class="foundry-guess melee comp4">M</a></td>
+								<td><input type="text" class="project comp4-drop"></td>
+								<td><input type="number" class="project comp4-need" min="0" value="0"></td>
+								<td><input type="number" class="project comp4-have" min="0" value="0"></td>
+							</tr>
+						</table>
+					</div>
+					<button class="foundryform submit">Add</button>
+				</div>
+
+				<div class="subsection foundrylist">
+					<table>
+						<tr class="project-title">
+							<td class="project-name">Vectis Prime</td>
+							<td class="project-blueprint" colspan="3">Blueprint</td>
+						</tr>
+						<tr class="project-components">
+							<td class="project-comp owned">Comp1 (1/1): nowhere</td>
+							<td class="project-comp ">Comp1 (1/1): nowhere</td>
+							<td class="project-comp ">Comp1 (1/1): nowhere</td>
+							<td class="project-comp ">Comp1 (1/1): nowhere</td>
+						</tr>
+					</table>
+
+				</div>
+			</section>
+		</article>
+
+
+		<article id="metro">
+			<h2>Metro</h2>
+			<section>
+				<div>
+					<button class="moralpointstoggle m2033" onclick="$('.moralpoints.m2033').toggle();">Show Metro 2033 moral points</button>
+					<div class="moralpoints m2033" hidden>Moral points go here</div>
+				</div>
+				<div>
+					<button class="moralpointstoggle mll" onclick="$('.moralpoints.mll').toggle();">Show Metro Last Light moral points</button>
+					<div class="moralpoints mll" hidden>More moral points</div>
+				</div>
+			</section>
+		</article>
+	</main>
+</body>
+</html>
