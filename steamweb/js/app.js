@@ -585,9 +585,7 @@ $(document).ready(function(event)
 
 	$('button.shortcut.submit').click(function(event)
 	{
-		//shortcutListAdd(event);
-		var url = new URL($('input.shortcut-url').val());
-		alert(url.toString());
+		shortcutListAdd(event);
 		$('input.shortcut').val('');
 	});
 
