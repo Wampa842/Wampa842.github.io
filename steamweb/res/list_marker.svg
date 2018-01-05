@@ -9,29 +9,29 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="100mm"
-   height="100mm"
-   viewBox="0 0 100 100.00001"
+   width="16.970863"
+   height="10.323425"
+   viewBox="0 0 4.4902075 2.7314066"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="moon.svg">
+   sodipodi:docname="list_marker.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#303030"
+     pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994948"
-     inkscape:cx="83.177344"
-     inkscape:cy="303.72553"
-     inkscape:document-units="mm"
+     inkscape:zoom="22.627418"
+     inkscape:cx="7.3985587"
+     inkscape:cy="7.2426916"
+     inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     units="mm"
+     units="in"
      inkscape:window-width="1280"
      inkscape:window-height="972"
      inkscape:window-x="-8"
@@ -40,18 +40,23 @@
      inkscape:snap-bbox="true"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:snap-bbox-midpoints="true">
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-global="true">
     <sodipodi:guide
-       position="50.000002,50.000002"
-       orientation="1,0"
-       id="guide815"
+       position="2.2451045,1.3657014"
+       orientation="0,1"
+       id="guide816"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="50.000002,50.000002"
-       orientation="0,1"
-       id="guide819"
+       position="2.2451045,1.3657014"
+       orientation="1,0"
+       id="guide818"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
@@ -72,11 +77,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-196.99996)">
+     transform="translate(0.92218778,-294.31134)">
     <path
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#fff13c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.52916664;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.99705888;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 45.807231,213.6436 a 33.356399,33.356399 0 0 0 -1.163754,0.0413 30.143603,30.143603 0 0 1 18.160132,27.64534 30.143603,30.143603 0 0 1 -30.143894,30.1439 30.143603,30.143603 0 0 1 -11.823052,-2.42053 33.356399,33.356399 0 0 0 24.970568,11.30267 33.356399,33.356399 0 0 0 33.356105,-33.3561 33.356399,33.356399 0 0 0 -33.356105,-33.35662 z"
-       id="path821"
-       inkscape:connector-curvature="0" />
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#050505;stroke-width:0.26458335;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m -0.62632501,294.50238 3.89848201,1.17465 -3.89848201,1.17468 1.21393418,-1.17468 z"
+       id="rect820"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
   </g>
 </svg>

@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Wampa842</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script>
+		var redirectTable = 
+		{
+			'contacts': 'deviantart/contacts.html',
+			'license': 'deviantart/license.html'
+		};
+
+		$(document).ready(function()
+		{
+			var params = new URLSearchParams(window.location.search);
+			if(params.has("redirect") && Object.keys(redirectTable).includes(params.get('redirect')))
+			{
+				document.getElementsByTagName('body')[0].innerHTML = '<h3>You will be redirected in a second.</h3><h4><a id="redirect-link" href="">If nothing happens, click here.</a></h4>';
+
+				var redirectTo = redirectTable[params.get('redirect')];
+				document.getElementById('redirect-link').setAttribute('href', redirectTo);
+				window.location.replace(redirectTo);
+			}
+		});
+	</script>
 </head>
 <body>
-	Hello, world!<br>
-	<a href="steamweb/index.html">Steam in-game browser thingy</a>
+	Yo
 </body>
 </html>

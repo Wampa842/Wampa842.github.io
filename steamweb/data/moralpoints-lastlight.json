@@ -1,0 +1,328 @@
+[
+    {
+        "level":"Sparta",
+        "gain":[
+            "Play the guitar in Artyom's room.",
+            "Just across the hall from Artyom's room listen to the guy playing the guitar for a minute.",
+            "Listen to the two Rangers near Artyom's room discussing the significance of D6.",
+            "Listen to the conversation about Romanov in the break room.",
+            "Play the balalaika in the break room.",
+            "At the first gun shop tinker with the guns and mods a few times to earn a moral point.",
+            "In the shooting range after getting guns shoot the armored dummy in the head the first time before told to try a headshot.",
+            "Listen to the conversation in the kitchen.",
+            "Listen to the radio operators in front of the briefing room."
+        ]
+    },
+    {
+        "level":"Ashes",
+        "gain":[
+            "Walk to the back of the train you start the level on.",
+            "At the ladder, continue past it, further into the tunnel. Burn some cobwebs to get to a corpse that also has the first note in Ashes.",
+            "Staying near Anna until she begins climbing to her sniping position.",
+            "At the first encounter with Watchmen, don't shoot and stay hidden until they notice you."
+        ]
+    },
+    {
+        "level":"Pavel",
+        "gain":[
+            "Release the prisoners (this will also unlock achievement Freedom)."
+        ]
+    },
+    {
+        "level":"Reich",
+        "gain":[
+            "Listen to all of the Fuhrer's speech."
+        ],
+        "lose":[
+            "Kill the surrendering Nazi at the end of the chase."
+        ]
+    },
+    {
+        "level":"Separation",
+        "gain":[
+            "Don't kill the man reading on his bed after he surrenders."
+        ],
+        "lose":[
+            "After exiting the first area of Nazis, kill the man reading on his bed after he surrenders."
+        ]
+    },
+    {
+        "level":"Facility",
+        "gain":[
+            "After Artyom exits the air vent, watch the scene where a Nazi beats his fellow soldier and calls his mother a whore.",
+            "After the beating scene, listen to the conversation between two Nazis about stashed custom weapon.",
+            "Follow the Nazi heading back to the locker room and when he opens his locker, knock/kill him and pick up the weapon (this will also unlock the achievement/trophy A Present, but not in Metro Last Light Redux).",
+            "Listen to the conversation between two Nazis on the catwalk above the first room.",
+            "Reach the plant growing room without killing said brutalized soldier in the meat storage.",
+            "In the next area, there's a room filled with bathtubs. In the area beyond this, there's an air vent on the far side to the right, next to the guy in a chair. Enter it to get a point and there will be a supply crate on the left.",
+            "In the room with water turbines there's two Nazis discussing the hanging of Pavel, listen to their whole conversation to get a point.",
+            "Reach the sewer without killing any humans (this will also unlock achievement, if done without raising any alarms, Invisible Savior)."
+        ],
+        "lose":[
+            "Kill the Nazi that was locked in the meat storage."
+        ]
+    },
+    {
+        "level":"Torchlight",
+        "gain":[
+            "Just before the elevator at the beginning of the Spider tunnels, look to the left-hand side for a small nook hidden by cobwebs. Burn them away to find a small stash of ammo and a medkit next to two skeletons. Entering this nook earns a point.",
+            "Entering the elevator with Pavel earns a point.",
+            "Fending off the Spiders with Artyom's flashlight in the elevator earns a point.",
+            "Quickly saving Pavel from the Spider attack just after exiting the elevator earns a point.",
+            "Keep close to Pavel while he walks with the torch."
+        ],
+        "lose":[
+            "In the elevator with Pavel, leave your flashlight off throughout the ride.",
+            "Immediately after the elevator, leave your flashlight off and don't help Pavel when he is pinned by the Spider."
+        ]
+    },
+    {
+        "level":"Echoes",
+        "gain":[
+            "In the beginning of the chapter after sliding down the wing and encountering sudden rain, turn left and look for a sewage pipe. Crawl in until you reach a room with a skeleton. The moral point is earned upon reaching the room.",
+            "After encountering a huge sink hole, go to the tail end of the crashed blue plane on the left. There's another skeleton lying right in front of it. Reaching the skeleton earns a point.",
+            "After searching the spider-infested skeleton, look right. There's a small caved-in room with some ammo and filters. Entering it earns a point.",
+            "Taking the Duplet in the service room earns a point.",
+            "Letting the Watchmen herd pass by without being spotted earns a point (this will also unlock achievement Mouse).",
+            "Seeing all of the hallucinations of the first passenger section on the plane earns a point.",
+            "Listening to Pavel after saving him earns a point."
+        ],
+        "lose":[
+            "Shoot at the herd of watchmen."
+        ]
+    },
+    {
+        "level":"Bolshoi",
+        "gain":[
+            "Right after passing through the first door, listening to the families (arriving by traincarts) trying to convince the guards to let them into the station grants you a moral point.",
+            "Straight after this, listening to the couple from Reich talk about their escape yields a moral point. This is a reference to a quote from Martin Niemöller.",
+            "Giving the theater critic-turned-beggar a bullet gets you a point. Giving the very same beggar another bullet after his speech earns another point.",
+            "Listening to the two patrons at the bar discussing whether or not theater is useful in dark times earns a point.",
+            "Listening to the two stalkers telling Katja that her husband, a fellow stalker, was killed by a Demon and informing her of his gravesite attack earns a point.",
+            "Listening to a pair of women sitting on a bench opposite of Katja earns a point.",
+            "Watching Mischa show the children animal impressions with shadows earns a point.",
+            "Following the two children running back to the tracks, and listening to the arguing couple about joining the Army earns a point.",
+            "Following the attendant at the theater into the market area, after he convinces the other tourist to buy the contraband earns a point.",
+            "Watching the entire theater show earns a point (this also will unlock achievement Patron of the Arts).",
+            "Listening to the dancing girl's entire conversation (about her makeup and boyfriend) grants you a moral point.",
+            "After exiting the backstage area, at the end of the following hallway, to your right, listening to the girl in the shower talking to the girl in the bathtub grants you another point."
+        ]
+    },
+    {
+        "level":"Korbut",
+        "gain":[
+            "Listen in on the conversation between Korbut and Moskvin."
+        ]
+    },
+    {
+        "level":"Revolution",
+        "gain":[
+            "Get out of the storage room you start in at the beginning of this level and go downstairs to listen to the guard reporting in on the intercom.",
+            "Listen to the two soldiers in the storage area talking about the Frontline mission from Metro 2033.",
+            "Listen to the crane operators discussing moving radioactive materials.",
+            "Do not disturb the men doing the service check and keep following them until they finish the checking procedure and talk about a smoke break.",
+            "After the service check room and going through a big fan, listen to the conversation between two men right after climbing down the ladder.",
+            "When you get to the area with the machine gun platform, listen to the conversation between the machine gunner and a soldier."
+        ],
+        "lose":[
+            "In the room with the crane moving radioactive materials, shoot the non-soldier workers (for example, the worker using a jackhammer)."
+        ]
+    },
+    {
+        "level":"Regina",
+        "gain":[
+            "After boarding Regina and exiting Andrew's home, look for the first doorway on the left. Entering the area with the lamp on the desk earns a point.",
+            "After the previous area, again to the lefthand side of the tunnel, there is a door under a light with a mask and a filter next to it. Behind this door is a Spider nest. Entering it and finding the glowing red room at the end with a light switch earns a point.",
+            "After the previous area, continue onward for a time before finding another doorway on the left which leads to a partly submerged area. At the end to the right is a room with some ammo, filters and a skeleton. Entering this room earns a point.",
+            "After opening the airlock doors and entering a gas mask area, get out of Regina and turn the switch on the left to change the rail tracks to continue straight. Use Regina to smash the wooden barricade. Doing so earns a point.",
+            "After driving into the snowy tunnel, walk into the left hand tunnel to the abandoned metro cars where a Watchmen ambushes you. Keep going all the way to a dead end where a skeleton can be found. Arriving at the end earns a point.",
+            "Just before arriving at the abandoned metro cars you have to push forward with Regina, go to the right side of the tunnel where a gas mask hangs from the wall with a filter. Enter the passage there to earn a point.",
+            "While pushing the metro cars forward with Regina, look for a passage on the left side of the tunnel. This area is filled with shadows and ghosts who whisper to Artyom. There is a moral point and a Valve waiting at the end of the room.",
+            "Still while pushing the metro cars forward, on the right side is a sewer area with several Watchmen. Reaching the end near the skeleton wearing a gas mask earns a point."
+        ]
+    },
+    {
+        "level":"Bandits",
+        "gain":[
+            "When Artyom first awakes, turn around and enter where Regina crashed. A point is earned after discovering the skeleton there. And there is a Shambler with Extended Barrel to take.",
+            "After meeting the refugee caravan, wait and listen to all their conversations. A point is earned after a woman says her husband was drafted and then captured by Nazis.",
+            "Continuing down the tunnel after the refugee caravan, the first tunnel on the right will lead to a series of abandoned metro cars. A woman is crying for help and about to be raped by two bandits. Kill/knock them out before they kill her to earn a point.",
+            "Just before arriving at the main bandit camp where they're holding the woman and children, continue down the left-hand tunnel to a carriage with several corpses. Doing so earns a point.",
+            "Rescue the women and children being held in the bandit camp. The point is earned when the bandit in the final room threatening them is killed or knocked out."
+        ]
+    },
+    {
+        "level":"Dark Water",
+        "gain":[
+            "One is earned at the end of the level after escaping the Shrimp."
+        ]
+    },
+    {
+        "level":"Venice",
+        "gain":[
+            "Give a bullet to a beggar near the market alley where two men are trying to push a pig in a crate onto a boat. (Giving a bullet to the guitarist nearby won't grant you another point.)",
+            "Give a bullet to a second beggar near the market, this one in the alley where two children are drawing on the wall.",
+            "Buy and drink the bartender's special, \"The Bullet.\"",
+            "If you drink a few more you'll blackout. When you come back the bar will be wrecked and the bartender will be pissed, if you pay him 100 MGR for the damage you'll get a moral point.",
+            "Pay 10 MGR to use the shooting range.",
+            "There is a child being comforted by his mother since he lost his teddy bear. If Artyom completes all the challenges at the nearby shooting gallery, he will be awarded said teddy bear. Return it to the crying child to receive the moral point (this will also unlock achievement Reunion).",
+            "Complete the level without killing OR knocking out any bandits in the storage (i.e. the section must be completely ghosted)."
+        ],
+        "lose":[
+            "Taking the 20 MGR located on-board the boat of a sleeping fisherman. The boat is on the left corner of the dock. The Military Grade Rounds are accessible without actually stepping onto the boat and waking the tired fisherman.",
+            "The final drink at the bar before passing out incurs a morality loss as of Last Light Redux version 1.0.0.3. It is not known if every morality loss/gain is a single point or if some instances are more than others, but if it's a 1:1 exchange, then this makes the 100 MGR property-damage point gain opportunity essentially just a way to recover the previously subtracted moral point."
+        ]
+    },
+    {
+        "level":"Sundown",
+        "gain":[
+            "Explore all nine major shores of the swamp (player spawn, ruined buildings on the bottom left of the map, the demon on the bottom right, the storage yard, the ruined buildings to the left, the gas station, the fallen airplane, the demon at the top left, and the ferry). This moral point may be gained seemingly at random, sometimes by entering the derelict truck at the gas station, other times by entering the storage yard or ferry shore, and other times when just walking about."
+        ]
+    },
+    {
+        "level":"Nightfall",
+        "gain":[
+            "Just before Artyom meets his friends at the church, at the top of the escalators on the second floor of the destroyed mall. You encounter the mall after being chased by the Bog Shrimp. (ALL stashes/autosave locations prior to ascending the escalators must be visited for this point to trigger.)"
+        ]
+    },
+    {
+        "level":"Undercity",
+        "gain":[
+            "Just before entering the catacombs, there's a body near a table with a radio reaching for a tape recorder/player. Play the tape of the Ranger's last words regarding the Reds taking Anna into the catacombs for a point.",
+            "After entering the catacombs and Artyom's electronics getting mysteriously disabled, there will be a few ghosts in a tunnel walking around. When the church bell is heard immediately stop and wait for them to disappear to earn a point.",
+            "One is gained as Artyom is lowered deeper into the catacombs on the elevator just before the Nosalises attack.",
+            "Turn the corner after the blue pools to see a Nosalis pack moving through the tunnels.",
+            "A point can be earned if he lets them pass without attacking said pack.",
+            "A point can be earned by entering the tunnel the pack had emerged from and approaching the small Christian shrine.",
+            "After descending the small lift and encountering the winged Nosalises, a point can be earned by approaching a skeleton with a custom quadruple-barreled duplet near some spiderwebs.",
+            "When fighting the Rhino, apparently you earn one point if you don't shoot at it in the first room at all. This, however, rarely happens. It might be a bug, or the point is triggered by another event."
+        ],
+        "lose":[
+            "Shooting at the Nosalis pack after getting knocked off the elevator."
+        ]
+    },
+    {
+        "level":"Contagion",
+        "gain":[
+            "Deal with the two Red Line soldiers executing citizens at the beginning, before the shot man dies.",
+            "Listen to the shot man's explanation and confusion over the Red's attack. He will explain that the Reds came before anybody died of the Virus.",
+            "In the room to the left of the railcar where the enemy loading boxes is coming and going, there is a hole in the back wall that leads to an abandoned tunnel. The hole is partially blocked but you can move left and out into the tunnel. Head straight across from the hole to the green light on the opposite wall and turn right, at the water line is an ammo cache. Open it. Note that there is an explosive tripwire trap on the non water path of the floor.",
+            "Listen and watch the full execution of the wounded Red soldier who contracted the \"disease.\"",
+            "Go to the upper level of the apartments. In a room there will be a note for Artyom and some MGR. Picking up the MGR will give you a moral point.",
+            "After hearing Lesnitsky speaking with another soldier and going through the shaft, you will be in a room where some plants are growing. Go up the stairs, and there will be a Red Line officer going over dead citizens of the station. Listen to what he says to gain a moral point.",
+            "Remove your mask when Lesnitsky has his knife at Anna's throat, before he counts to five (this will also unlock achievement Savior).",
+            "Reach Anna without killing any humans."
+        ],
+        "lose":[
+            "Attacking Lesnitsky, when he has his knife at Anna's throat. "
+        ]
+    },
+    {
+        "level":"Quarantine",
+        "gain":[
+            "Right after the furnace where bodies are being cremated, there is a doctor talking to a soldier who got infected trying to comfort infected children. Listen to their conversation all the way through for a point. (This doesn't work sometimes. It might be caused by a bug. But it definitely works if you listen to the conversations that come before it as well.)",
+            "Right after the section where the doctor is talking to the chief about the possibility of the virus being a bio weapon, there is a man on a gurney on the your right talking to a doctor about going home because he is sure that he only has a cold. Listen to the whole conversation to earn a point.",
+            "Pick up the four MGR stashes in the abandoned part of the station. The first is hidden behind the door where Artyom initially enters and can only be claimed once he proceeds down the stairs and the door closes. The second one is in the window to the left of the small water bridge and quarantine skull sign. The third is in a window at the beginning of the long corridor, look for a backside of a traincar near where the second MGR was found. The fourth and final piece is in a broken window on the right side of the long corridor, near where you first start heading down it.",
+            "After meeting up with Khan there is a man asking the guard to let him go inside the quarantine zone and take some insulin. After he is refused, go up to him and he will ask you for help. He may not talk right away; just stand by his side and wait, and he will ask for help after a moment. Give him the bullets he needs.",
+            "In the small market area, listen to the three soldiers gathered around a table with a lamp discussing the Reds and Polis."
+        ]
+    },
+    {
+        "level":"Khan",
+        "gain":[
+            "Answer the phone in the sewers.",
+            "Reach the river of fate."
+        ]
+    },
+    {
+        "level":"The Chase",
+        "gain":[
+            "One point is gained at the end of the chapter, when you pick up the Little Dark One and walk out of the burning train."
+        ]
+    },
+    {
+        "level":"The Crossing",
+        "gain":[
+            "After crossing the ice under a bridge, the Little Dark One will appear on top of a wrecked van next to a billboard and expresses his desire to wear human clothing; stay close to him.",
+            "Up a small path and to the right of the aforementioned billboard is a dead Demon surrounded by dead Watchmen; walking up to the corpses earns a point.",
+            "Just after the demon flies off, when entering the train the Little Dark One will appear with clothes. Do not shoot and stay close until he disappears.",
+            "At the end of the level the Little Dark One appears again; follow him to end the level and gain a point."
+        ]
+    },
+    {
+        "level":"Bridge",
+        "gain":[
+            "Enter the small room to the left at the start.",
+            "Just before the Little Dark One gives a second vision, look to the left. There is a broken ramp leading down to a small area beneath the bridge with a few corpses. Going down the ramp earns a point.",
+            "Finish the level without killing any mutants (this will also unlock achievement Rain Man)."
+        ]
+    },
+    {
+        "level":"Depot",
+        "gain":[
+            "After exiting the tunnel at the very beginning, stick to the left hand side. There is a garage with two closed doors, one open that has a truck poking out. Continue past this point to an entrance in the wall, then enter it. A building with a collapsed ceiling leads into the garage. Be careful as there is an explosive trap. It is also possible to climb over the front of the truck to enter the garage. Entering the garage earns a point.",
+            "In the area where the Reds first stage an ambush, in the center of the room is a hidden passage that leads beneath the room. Entering it earns a point.",
+            "In the third area where the Reds are waiting, there is another hidden passage near a big red door on the opposite side of the room in which you enter; there will be a circular manhole. There is a dead soldier at the bottom. Entering it earns a point.",
+            "In the fourth area with Reds standing guard there is a secret area under the room's ground with a corpse; entering it will gain you a point.",
+            "In the fifth area where the Reds are waiting with three to four snipers, there is a hidden passage that can be reached by the catwalks above the metro cars or by stairs at the back of the room. Entering this passage earns a point.",
+            "Knocking Lesnitsky unconscious earns a point."
+        ],
+        "lose":[
+            "Kill Lesnitsky."
+        ]
+    },
+    {
+        "level":"The Dead City",
+        "gain":[
+            "Do not kill the Watchmen in the area with the ladder that Artyom must climb. The point is earned at the top of the ladder. The Watchmen aren't hostile and leave a blue-green trail when the Little Dark One augments your vision.",
+            "Do not kill the Demon on the rooftop protecting her nest, or her baby. You will gain the point after going down the stairs, and jumping through the hole in the floor.",
+            "See all visions (this will also unlock achievement Back to the Past)."
+        ],
+        "lose":[
+            "Kill the Watchmen in the area with the ladder that Artyom must climb. Sometimes the Little Dark One says that they are just going somewhere.",
+            "Kill the Demon of the rooftop protecting her nest. The Little Dark One will ask Artyom why he killed her.",
+            "Killing the baby demon will lose another one and a remark of the Little Dark One if Artyom would do the same to him."
+        ]
+    },
+    {
+        "level":"Red Square ",
+        "gain":[
+            "At the beginning of the level when the Watchmen are growling from atop the Saint Basil's Cathedral, don't shoot at them. The point is earned as they begin to go inside. Climbing the staircase into the Cathedral to an area full of skeletons earns another point.",
+            "While following the Little Dark One through the storm, Artyom will come across a Watchman kneeling over a skeleton. The Little Dark One will say he's simply afraid. Leaving him be will earn a point as soon as Artyom enters the next area.",
+            "In the ruined sewer area, a group of three Watchmen will slowly approach, but again the Little Dark One says they won't attack unless provoked. Leaving them be will earn another point.",
+            "In the same area, you can see a corpse down a hole. Reach it to gain another point, but taking too much time will cause the Watchmen to attack.",
+            "Save Pavel from the damned souls. The Little Dark One will then remark that now he understands what forgiveness is."
+        ],
+        "lose":[
+            "Enter the St.Basil's Cathedral before the Watchmen go away.",
+            "Shoot at the Watchmen on St.Basil's Cathedral before they go away.",
+            "Killing the Watchmen kneeling over a skeleton when following the Little Dark One through the storm.",
+            "Leaving Pavel with the damned souls causes you to lose a point. The Little Dark One will tell you that he will remember that you couldn't forgive (this will also unlock achievement Revenge)."
+        ]
+    },
+    {
+        "level":"The Garden",
+        "gain":[
+            "Near the beginning of the level, there is a path leading towards a hole in the right-hand wall, into a flooded store with can alarms and a safe. Entering this area earns a point.",
+            "At the same split where you can reach the flooded store, you can also turn left, crossing a log and a flooded pipe. Right after the pipe will be a tripwire; disarm it or avoid it, then crouch ahead and you will receive a moral point.",
+            "Do not engage any watchmen and just sprint to the small passage to next area where Artyom must crouch. A moral point will be gained when you enter this passage. Just after a moral point is added, you will see baby Bears.",
+            "Kill the Watchmen attacking the Bear after the fight with Artyom. Do so quickly or they'll kill her (this will also unlock achievement Forest Guardian)."
+        ],
+        "lose":[
+            "Shoot any Watchmen before Artyom must crouch to a small passage.",
+            "Leave the clearing without harming the Watchmen on the Bear's back."
+        ]
+    },
+    {
+        "level":"Polis",
+        "gain":[
+            "After the Little Dark One grabs General Moskvin's hand, there's a dream sequence that requires you to open doors. Watch the scenes behind the doors until the door shuts itself. You'll receive the moral point after the door closes on General Moskvin apologizing to a picture of his brother."
+        ]
+    },
+    {
+        "level":"D6",
+        "gain":[
+            "One final point is awarded if the Baby Dark One prompts the Redemption ending."
+        ]
+    }
+]
