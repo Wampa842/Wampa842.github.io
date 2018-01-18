@@ -324,3 +324,13 @@ div.component-numbers span
 	position: relative;
 	width: 320px;
 }
+
+.poe-clock-container div
+{
+	text-align: center;
+}
+
+.poe-clock-container .poe-clock
+{
+	font-size: 2em;
+}
