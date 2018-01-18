@@ -441,7 +441,8 @@ $(document).ready(function(event)
 
 	function metroReadMoralPoints()
 	{
-		$.getJSON('data/moralpoints-lastlight.json', function(data)
+		//$.getJSON('data/moralpoints-lastlight.json', function(data)
+		function processJSON(data)
 		{
 			var c = [];
 			for(var i = 0; i < data.length; ++i)
@@ -472,6 +473,14 @@ $(document).ready(function(event)
 				c.push('</div>');
 			}
 			$('div.moralpoints.mll').html(c.join(''));
+		}//);
+
+		$.ajax(
+		{
+			dataType: "json",
+			url: "data/moralpoints-lastlight.json",
+			mimeType: "application/json",
+			success: processJSON
 		});
 	}
 
