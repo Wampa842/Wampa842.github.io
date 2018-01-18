@@ -62,13 +62,13 @@ $(document).ready(function(event)
 		{
 			$('body').addClass('night');
 			//$('div.nav-right img').attr('src', MOON_ICON);
-			$('div.nav-right button').html(MOON_SVG);
+			$('button.daynight-style').html(MOON_SVG);
 		}
 		else
 		{
 			$('body').removeClass('night');
 			//$('div.nav-right img').attr('src', SUN_ICON);
-			$('div.nav-right button').html(SUN_SVG);
+			$('button.daynight-style').html(SUN_SVG);
 		}
 	}
 
@@ -511,7 +511,15 @@ $(document).ready(function(event)
 	metroReadMoralPoints();
 
 //// EVENTS ////
-	$('button.daynight').click(function(event)
+	$('button.delete-local-data').click(function(event)
+	{
+		if(confirm("WARNING!\nDeleting the local data will remove all wikia items, foundry projects and shortcuts, as well as reset all preferences.\nProceed?"))
+		{
+			localStorage.clear();
+		}
+	});
+
+	$('button.daynight-switch').click(function(event)
 	{
 		$('body').addClass('slow-transform');
 		toggleNightMode(event, !nightmode);

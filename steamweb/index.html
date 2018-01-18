@@ -25,31 +25,42 @@
 				</div>
 			</div>
 			<div class="nav-right">
-				<button class="daynight"><img src="res/sun.svg"></button>
+				<button class="daynight-switch daynight-style"><img src="res/sun.svg"></button>
 			</div>
 		</nav>
 	</header>
 	<main>
 		<article class="sidebar">
-			<div class="poe-clock-container subsection">
-				<h2>Cetus clock</h2>
-				<div class="poe-clock">8:88:88</div>
-				<div class="poe-period">The clock is broken!!</div>
+			<div class="sidebar-settings-container">
+				<button class="sidebar-settings-button daynight-switch">Day/night theme</button>
+				<button class="sidebar-settings-button delete-local-data">Delete local data</button>
 			</div>
-			<div class="shortcuts">
-				<div class="shortcut-add subsection">
-					<h2>Shortcuts</h2>
-					URL:<br>
-					<input type="text" class="shortcut shortcut-url"><br>
-					Name:<br>
-					<input type="text" class="shortcut shortcut-name"><br>
-					<button class="shortcut submit">Submit</button>
+				<div class="cetus-clock-container subsection">
+					<h2>Cetus clock</h2>
+					<div class="cetus-clock-local">0:00:00</div>
+					<div class="cetus-clock">8:88:88</div>
+					<div class="cetus-period">The clock is broken!!</div>
+					<div class="cetus-clock-analog-container">
+						<img class="cetus-clock-analog-face" src="res/cetus_clock_face.svg">
+						<img class="cetus-clock-analog-minute cetus-clock-analog-hand" src="res/cetus_clock_minute.svg">
+						<img class="cetus-clock-analog-hour cetus-clock-analog-hand" src="res/cetus_clock_hour.svg">
+						<!--img class="cetus-clock-analog-solar cetus-clock-analog-hand" src="res/cetus_clock_solar.svg"-->
+					</div>
 				</div>
-				<div class="shortcut-list subsection" style="padding: 20px;">
-					<ul>
-					</ul>
+				<div class="shortcuts">
+					<div class="shortcut-add subsection">
+						<h2>Shortcuts</h2>
+						URL:<br>
+						<input type="text" class="shortcut shortcut-url"><br>
+						Name:<br>
+						<input type="text" class="shortcut shortcut-name"><br>
+						<button class="shortcut submit">Submit</button>
+					</div>
+					<div class="shortcut-list subsection" style="padding: 20px;">
+						<ul>
+						</ul>
+					</div>
 				</div>
-			</div>
 		</article>
 		<article id="warframe">
 			<h2>Warframe</h2>
