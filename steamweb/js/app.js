@@ -490,7 +490,10 @@ $(document).ready(function(event)
 
 	}
 	else
+	{
 		console.log('Local storage is NOT supported.');
+		alert('Attention!\nThis website relies on local storage, which your browser doesn\'t seem to support.');
+	}
 
 	wikiaListReadLocal(event);
 	foundryListReadLocal(event);
