@@ -311,8 +311,12 @@ div.component-numbers span
 	height: 100%;
 	width: 340px;
 	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
 	transition-duration: 0.3s;
 	box-shadow: 1px 1px 8px 1px;
+	/*transform: translateX(390px);*/
 }
 .sidebar:hover
 {
@@ -321,6 +325,8 @@ div.component-numbers span
 
 .sidebar-settings-container
 {
+	flex-grow: 0;
+	flex-shrink: 0;
 	display: flex;
 	justify-content: space-between;
 	align-content: stretch;
@@ -334,10 +340,15 @@ div.component-numbers span
 	flex-shrink: 0;
 }
 
+.sidebar-main-container
+{
+	flex: 1 0 auto;
+}
+
 .sidebar input[type=text]
 {
 	position: relative;
-	width: 320px;
+	width: 97%;
 }
 
 .cetus-clock-container div
@@ -368,4 +379,14 @@ div.component-numbers span
 	transform-origin: 50% 50%;
 	left: 0px;
 	width: 100%;
+}
+
+.sidebar-footer-container
+{
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-top: 5px;
+	text-align: center;
+	font-size: 0.6em;
+	border-top: 1px solid;
 }
