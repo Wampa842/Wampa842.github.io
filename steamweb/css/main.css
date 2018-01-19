@@ -1,3 +1,12 @@
+/*
+
+	Z-indexes
+	Background: 1
+	Main: 50
+	Navbar:	60
+	Sidebar: 300
+
+*/
 /* GENERIC ELEMENTS */
 
 @font-face
@@ -152,6 +161,7 @@ nav
 	align-items: stretch;
 	height: 90px;
 	width: 100%;
+	z-index: 60;
 }
 
 nav div
