@@ -26,14 +26,14 @@ function cetusClockUpdate()
 	var cetusTime = ((now - startTime) / 60) % 150;	//Cetus time of day in minutes
 	$(".cetus-period").html(cetusTime > 100 ? "until sunrise" : "until sunset");
 	var nextPeriod = cetusTime > 100 ? 150 : 100;
-	$(".cetus-clock").html(minToString(nextPeriod - cetusTime));
+	$(".cetus-clock-countdown").html(minToString(nextPeriod - cetusTime));
 
-	var cetusLocalTime = cetusTime * 9.6 + 240;
+	var cetusLocalTime = cetusTime * 9.6 + 300;
 	$(".cetus-clock-local").html(minToString(cetusLocalTime));
 	analogClockUpdate(cetusLocalTime);
 };
 
 $(document).ready(function(event)
 {
-	var interval = setInterval(cetusClockUpdate, 1);
+	var interval = setInterval(cetusClockUpdate, 10);
 });

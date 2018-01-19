@@ -9,7 +9,7 @@
 
 body.slow-transform, body.slow-transform *
 {
-	transition: color 0.5s, background-color 0.5s, transform 0.3s;
+	transition: color 0.5s, background-color 0.5s, transform 0.3s, filter 0.3s;
 }
 
 body
@@ -96,17 +96,36 @@ li
 body
 {
 	padding-top: 90px;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 nav, article
 {
+	position: relative;
 	background-color: #f9f9f9;
 	margin: 0px;
 	margin-bottom: 10px;
 	padding: 0px;
 	box-shadow: 0px 1px 3px;
 	text-align: center;
+	z-index: 50;
 }
+
+div.background
+{
+	display: block;
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	display: block;
+	filter: blur(10px);
+	z-index: 1;
+}
+
 nav
 {
 	position: fixed;
@@ -304,7 +323,7 @@ div.component-numbers span
 
 .sidebar
 {
-	z-index: 3;
+	z-index: 300;
 	position: fixed;
 	top: 0px;
 	left: -390px;
@@ -334,6 +353,7 @@ div.component-numbers span
 
 .sidebar-settings-button
 {
+	font-size: 0.8em;
 	box-sizing: border-box;
 	flex-basis: 0;
 	flex-grow: 1;
@@ -351,12 +371,24 @@ div.component-numbers span
 	width: 97%;
 }
 
-.cetus-clock-container div
+.cetus-clock-container
+{
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	flex-direction: row;
+}
+
+.cetus-clocks div
+{
+}
+
+.cetus-clock-digital-container
 {
 	text-align: center;
 }
 
-.cetus-clock-container .cetus-clock
+.cetus-clocks .cetus-clock-countdown
 {
 	font-size: 2em;
 }
@@ -364,8 +396,8 @@ div.component-numbers span
 .cetus-clock-analog-container
 {
 	position: relative;
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	display: block;
 	margin-top: 10px;
 	margin-left: auto;

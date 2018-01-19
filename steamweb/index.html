@@ -4,13 +4,16 @@
 	<title>Steamweb index</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/night.css">
+	<link rel="stylesheet" type="text/css" href="css/special.css">
 	
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/clock.js"></script>
 </head>
 <body>
+	<div class="background">
+		<img />
+	</div>
 	<header>
 		<nav>
 			<div class="nav-left-padding"></div>
@@ -34,38 +37,44 @@
 			<div class="sidebar-settings-container">
 				<button class="sidebar-settings-button daynight-switch">Day/night theme</button>
 				<button class="sidebar-settings-button delete-local-data">Delete local data</button>
+				<button class="sidebar-settings-button toggle-pretty-background">Pretty background</button>
 			</div>
 			<div class="sidebar-main-container">
-				<div class="cetus-clock-container subsection">
-					<h2>Cetus clock</h2>
-					<div class="cetus-clock-local">0:00:00</div>
-					<div class="cetus-clock">8:88:88</div>
-					<div class="cetus-period">The clock is broken!!</div>
-					<div class="cetus-clock-analog-container">
-						<img class="cetus-clock-analog-face" src="res/cetus_clock_face.svg">
-						<img class="cetus-clock-analog-minute cetus-clock-analog-hand" src="res/cetus_clock_minute.svg">
-						<img class="cetus-clock-analog-hour cetus-clock-analog-hand" src="res/cetus_clock_hour.svg">
-						<!--img class="cetus-clock-analog-solar cetus-clock-analog-hand" src="res/cetus_clock_solar.svg"-->
+				<div class="cetus-clocks subsection">
+					<div class="cetus-clock-container">
+						<div class="cetus-clock-digital-container">
+							<h2>Cetus clock</h2>
+							<div class="cetus-clock-local">0:00:00</div>
+							<div class="cetus-clock-countdown">8:88:88</div>
+							<div class="cetus-period">The clock is broken!!</div>
+						</div>
+						<div class="cetus-clock-analog-container">
+							<img class="cetus-clock-analog-face" src="res/cetus_clock_face.svg">
+							<img class="cetus-clock-analog-minute cetus-clock-analog-hand" src="res/cetus_clock_minute.svg">
+							<img class="cetus-clock-analog-hour cetus-clock-analog-hand" src="res/cetus_clock_hour.svg">
+						</div>
 					</div>
 				</div>
-				<div class="shortcuts">
-					<div class="shortcut-add subsection">
-						<h2>Shortcuts</h2>
+				<div class="shortcuts subsection">
+					<h2>Shortcuts</h2>
+					<button class="shortcut-form-show">Add new...</button>
+					<div class="shortcut-add-form subsection" style="display: none;">
 						URL:<br>
 						<input type="text" class="shortcut shortcut-url"><br>
 						Name:<br>
 						<input type="text" class="shortcut shortcut-name"><br>
-						<button class="shortcut submit">Submit</button>
+						<button class="shortcut-submit">Submit</button>
+						<button class="shortcut-cancel">Cancel</button>
 					</div>
-					<div class="shortcut-list subsection" style="padding: 20px;">
+					<div class="shortcut-list" style="padding: 20px;">
 						<ul>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="sidebar-footer-container">
-				Developed by IronKhagan/Wampa842<br>
-				<a href="https://github.com/Wampa842">GitHub</a><br>
+				Developed by IronKhagan. <span class="background-author">Background image by somebody</span><br>
+				<a href="https://github.com/Wampa842/Wampa842.github.io">GitHub</a><br>
 				I am not affiliated with Digital Extremes. This website is a personal project.
 			</div>
 		</article>

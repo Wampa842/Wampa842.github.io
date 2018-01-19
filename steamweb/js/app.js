@@ -8,6 +8,31 @@ const MOON_ICON = 'res/moon_outline.svg';
 const SUN_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" height="100mm" width="100mm"><path d="M50 18.69l-4.17 7.13a24.54 24.54 0 0 0-4.3 1.16l-7.19-4.1-.04 8.29a24.54 24.54 0 0 0-3.15 3.13l-8.27.04L27 41.55a24.54 24.54 0 0 0-1.15 4.27L18.7 50l7.13 4.17a24.54 24.54 0 0 0 1.16 4.3l-4.1 7.19 8.29.04a24.54 24.54 0 0 0 3.13 3.15l.04 8.27L41.55 73a24.54 24.54 0 0 0 4.27 1.15L50 81.3l4.17-7.13a24.54 24.54 0 0 0 4.3-1.16l7.19 4.1.04-8.29a24.54 24.54 0 0 0 3.15-3.13l8.27-.04L73 58.45a24.54 24.54 0 0 0 1.15-4.27L81.3 50l-7.13-4.17a24.54 24.54 0 0 0-1.16-4.3l4.1-7.19-8.29-.04a24.54 24.54 0 0 0-3.13-3.15l-.04-8.27L58.45 27a24.54 24.54 0 0 0-4.27-1.15z" style="isolation:auto;mix-blend-mode:normal" color="#000" overflow="visible" fill="none" stroke="#050505" stroke-linecap="square"/></svg>';
 const MOON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" height="100mm" width="100mm"><path d="M45.8 16.64a33.36 33.36 0 0 0-1.16.04A30.14 30.14 0 0 1 62.8 44.33a30.14 30.14 0 0 1-30.14 30.14 30.14 30.14 0 0 1-11.82-2.42 33.36 33.36 0 0 0 24.97 11.3A33.36 33.36 0 0 0 79.16 50a33.36 33.36 0 0 0-33.35-33.36z" style="isolation:auto;mix-blend-mode:normal" color="#000" overflow="visible" fill="none" stroke="#fff" stroke-width=".53" stroke-linecap="square"/></svg>';
 
+var prettyBackgroundsEnabled = false;
+const PRETTY_BACKGROUNDS = 
+[
+	{
+		url: "https://i.imgur.com/PDzJzkk.jpg",
+		author: "u/9mmPerSecond"
+	},
+	{
+		url: "https://i.redd.it/8r9xoe7mmva01.jpg",
+		author: "u/Measure2xCutOnce"
+	},
+	{
+		url: "https://i.imgur.com/zvpmdvV.jpg",
+		author: "u/MilkshakesMate"
+	},
+	{
+		url: "https://i.redd.it/2umg2mgsana01.jpg",
+		author: "u/Peeloz"
+	},
+	{
+		url: "https://i.redd.it/t8b4falxqva01.jpg",
+		author: "u/ChozoRS"
+	}
+];
+
 var wikiaList = [];
 var foundryList = [];
 var shortcutList = [];
@@ -22,11 +47,14 @@ var defaultComponents =
 
 $(document).ready(function(event)
 {
+
 //// METHODS ////
 	function writeSettings(key, value)
 	{
 		if(!key || typeof key !== 'string')
 			return;	//If the key is invalid (undefined, null, empty or not a string), don't do anything
+		if(value === undefined)
+			value = '';
 		var settings = readSettings();
 		if(settings == null)
 			settings = {};
@@ -54,7 +82,7 @@ $(document).ready(function(event)
 
 	function toggleNightMode(event, mode)
 	{
-		console.log('Night mode is ' + mode);
+		console.log('Night mode is', mode);
 		nightmode = mode;
 		//localStorage.setItem(SETTINGS_LS, nightmode);
 		writeSettings('nightmode', nightmode);
@@ -69,6 +97,38 @@ $(document).ready(function(event)
 			$('body').removeClass('night');
 			//$('div.nav-right img').attr('src', SUN_ICON);
 			$('button.daynight-style').html(SUN_SVG);
+		}
+	}
+
+	function toggleBackground(event, mode)
+	{
+		prettyBackgroundsEnabled = mode == true;
+		console.log('Background image is', prettyBackgroundsEnabled);
+		writeSettings('pretty-background', prettyBackgroundsEnabled);
+
+		// var tX = ($('div.background img').width() - window.innerWidth) / 2;
+		// var tY = ($('div.background img').height() - window.innerHeight) / 2;
+		// console.log(tX, tY);
+		// $('div.background').css("transform", "translate(" + tX + "px, " + tY + "px)");
+
+		if(mode)
+		{
+			$('body').addClass('pretty');
+			//var bgUrl = "https://i.redd.it/8r9xoe7mmva01.jpg";
+			var l = PRETTY_BACKGROUNDS.length;
+			var bgIndex = Math.floor(Math.random() * l) % l;
+			console.log('Background image selected:', bgIndex);
+			var bgUrl = PRETTY_BACKGROUNDS[bgIndex]["url"];
+			$('div.background').css("background-image", "url('" + bgUrl + "')");
+			$('div.background').show();
+			$('span.background-author').text("Background image by " + PRETTY_BACKGROUNDS[bgIndex]["author"]);
+			$('span.background-author').show();
+		}
+		else
+		{
+			$('body').removeClass('pretty');
+			$('div.background').hide();
+			$('span.background-author').hide();
 		}
 	}
 
@@ -494,9 +554,10 @@ $(document).ready(function(event)
 		console.log('Local storage is supported.');
 
 		nightmode = readSettings('nightmode');
-
 		toggleNightMode(null, nightmode);
 
+		prettyBackgroundsEnabled = readSettings('pretty-background');
+		toggleBackground(null, prettyBackgroundsEnabled);
 	}
 	else
 	{
@@ -523,6 +584,11 @@ $(document).ready(function(event)
 	{
 		$('body').addClass('slow-transform');
 		toggleNightMode(event, !nightmode);
+	});
+
+	$('button.toggle-pretty-background').click(function(event)
+	{
+		toggleBackground(event, !prettyBackgroundsEnabled);
 	});
 
 	$('button.wikiaid.go').click(function(event)
@@ -603,10 +669,25 @@ $(document).ready(function(event)
 		$('.sidebar input, .sidebar a, .sidebar button').blur();
 	});
 
-	$('button.shortcut.submit').click(function(event)
+	$('button.shortcut-form-show').click(function(event)
+	{
+		$('div.shortcut-add-form').show();
+		$(event.target).hide();
+	});
+
+	$('button.shortcut-cancel').click(function(event)
+	{
+		$('div.shortcut-add-form').hide();
+		$('button.shortcut-form-show').show();
+		$('input.shortcut').val('');
+	});
+
+	$('button.shortcut-submit').click(function(event)
 	{
 		shortcutListAdd(event);
 		$('input.shortcut').val('');
+		$('div.shortcut-add-form').hide();
+		$('button.shortcut-form-show').show();
 	});
 
 	$('button.shortcut.remove').click(function(event)
