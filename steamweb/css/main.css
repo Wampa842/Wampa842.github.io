@@ -114,6 +114,8 @@ nav, article
 
 div.background
 {
+	background-size: cover;
+	background-position: center;
 	display: block;
 	position: fixed;
 	margin-left: auto;
@@ -122,8 +124,23 @@ div.background
 	right: 0px;
 	height: 100%;
 	display: block;
-	filter: blur(10px);
 	z-index: 1;
+}
+
+div.background.blur
+{
+	filter: blur(10px);
+}
+
+div.background-author-container
+{
+	position: fixed;
+	z-index: 51;
+	bottom: 5px;
+	right: 10px;
+	font-size: 0.8em;
+	opacity: 0.5;
+	text-shadow: 0px 1px 2px black;
 }
 
 nav
@@ -353,7 +370,7 @@ div.component-numbers span
 
 .sidebar-settings-button
 {
-	font-size: 0.8em;
+	font-size: 0.7em;
 	box-sizing: border-box;
 	flex-basis: 0;
 	flex-grow: 1;

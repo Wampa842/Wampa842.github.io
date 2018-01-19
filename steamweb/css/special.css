@@ -63,20 +63,20 @@ body.night .sidebar
 
 body.night div.background
 {
+	filter: brightness(50%);
+}
+
+body.night div.background.blur
+{
 	filter: brightness(50%) blur(10px);
 }
 
-body.pretty div.background
-{
-	display: block;
-}
-
-body.pretty nav, body.pretty article
+body.bg-image nav, body.bg-image article
 {
 	opacity: 0.6;
 }
 
-body.pretty .sidebar
+body.bg-image .sidebar
 {
 	opacity: 0.8;
 }
