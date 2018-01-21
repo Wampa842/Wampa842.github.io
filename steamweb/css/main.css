@@ -72,7 +72,7 @@ button
 
 button:hover
 {
-	box-shadow: 0px 4px 10px 0px;
+	box-shadow: 0px 2px 8px 0px;
 }
 
 button:active
@@ -209,11 +209,11 @@ div.nav-left-bottom
 
 button.daynight-style
 {
-	background-color: #68fbff;
+	/*background-color: #68fbff;*/
+	border: none;
 	border-left: 1px solid #00000030;
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
 	border-radius: 0px;
 	box-shadow: none;
 	height: 100%;
@@ -261,10 +261,67 @@ article
 	box-shadow: 0px 1px 4px 0px;
 }
 
-button.remove
+.shortcut-list ul
 {
-	float: right;
-	border-radius: 10px
+	padding-left: 0px;
+}
+
+.shortcut-list li
+{
+	display: flex;
+	align-items: center;
+	margin-left: 0px;
+}
+
+.shortcut-list li span
+{
+	flex: 1 1 auto;
+}
+
+.shortcut-list li .shortcut-button
+{
+	visibility: hidden;
+	flex: 0 0 auto;
+	padding: 0px;
+	width: 20px;
+	height: 20px;
+	border-radius: 0px;
+	font-size: 0.8em;
+	transition-duration: 0s;
+}
+
+.shortcut-list li:hover .shortcut-button
+{
+	visibility: visible;
+}
+
+.wikialist ul
+{
+}
+
+.wikialist li
+{
+	display: flex;
+	align-items: center;
+}
+
+.wikialist span
+{
+	display: block;
+	flex: 1 1 auto;
+}
+
+.wikiaid-button
+{
+	transition-duration: 0s;
+	font-size: 0.6em;
+	height: 1.6em;
+	visibility: hidden;
+}
+
+.wikialist li:hover .wikiaid-button
+{
+	visibility: visible;
 }
 
 a.foundry-guess
@@ -278,6 +335,10 @@ table.foundrytable
 	width: 100%;
 	box-sizing: border-box;
 	border-collapse: collapse;	
+}
+
+table.foundrytable tr, table.foundrytable td
+{
 }
 
 table.foundrytable th
@@ -306,6 +367,7 @@ th.foundryheader.component
 tr.foundryproject
 {
 	height: 40px;
+	font-size: 0.9em;
 }
 
 td.foundryproject
@@ -317,13 +379,35 @@ td.foundryproject
 
 td.foundryproject.name
 {
-	padding-left: 5px;
+	padding-left: 0px;
 	font-weight: bold;
 }
 
-button.foundryproject.edit
+div.foundryproject-name-container
 {
+	display: flex;
+	align-items: center;
+}
+
+div.foundryproject-button-container
+{
+	flex: 0 0 auto;
+	margin-right: 10px;
+	display: flex;
+}
+
+div.foundryproject-button-move-container
+{
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+button.foundryproject-button
+{
+	flex: 1 1 auto;
 	font-size: 0.7em;
+	width: 100%;
 }
 
 td.foundryproject.name, td.foundryproject.blueprint
@@ -418,10 +502,6 @@ div.component-numbers span
 	align-items: center;
 	padding: 10px;
 	flex-direction: row;
-}
-
-.cetus-clocks div
-{
 }
 
 .cetus-clock-digital-container

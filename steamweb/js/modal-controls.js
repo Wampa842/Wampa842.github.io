@@ -41,7 +41,7 @@ $(document).ready(function()
 	{
 		showModal();
 		title.text("Foundry");
-		message.html("This section tracks the requirements and components for foundry items.<br>You can open the new item form by clicking the \"Add new project\" button, then enter the item's name, Wikia ID, drop locations, and owned and required quantities.<br>Clicking on the F/G/M letters enters the usual components for warframes, guns and melee weapons, respectively.<br>Components that you still need to acquire will be marked with bold letters.");
+		message.html("This section tracks the requirements and components for foundry items.<br>You can open the new item form by clicking the \"Add new project\" button, then enter the item's name, Wikia ID, drop locations, and owned and required quantities.<br>Clicking on the W/G/M letters enters the usual components for warframes, guns and melee weapons, respectively.<br>Components that you still need to acquire will be marked with bold letters.");
 		inputs.html(modalDismissHtml);
 		$(modalDismissClass).click(function(event)
 		{

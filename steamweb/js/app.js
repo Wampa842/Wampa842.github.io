@@ -161,15 +161,30 @@ var defaultComponents =
 		c.push('<div style="width: 400px;"><ul>');
 		for(var i = 0; i < data.length; ++i)
 		{
-			c.push('<li><a href="http://warframe.wikia.com/wiki/' + data[i]['id'] + '">' + data[i]['name'] + '</a>');
-			c.push('<button class="wikiaid remove" value="' + i + '">x</button></li>');
+			c.push('<li><span><a href="http://warframe.wikia.com/wiki/' + data[i]['id'] + '">' + data[i]['name'] + '</a></span>');
+			c.push('<button class="wikiaid-button wikiaid-move-up" value="' + i + '">&#x25b2;</button>');
+			c.push('<button class="wikiaid-button wikiaid-move-down" value="' + i + '">&#x25bc;</button>');
+			c.push('<button class="wikiaid-button wikiaid-remove" value="' + i + '">&#x274c;</button>');
+			c.push('</li>');
 		}
 		c.push('</ul></div>');
 		div.html(c.join(''));
 		
-		$('div.wikialist button.remove').click(function(event)
+		$('button.wikiaid-remove').click(function(event)
 		{
 			wikiaListRemoveItem(event);
+		});
+		
+		$('button.wikiaid-move-up').click(function(event)
+		{
+			genericListMove(event, wikiaList, 1);
+			wikiaListWriteLocal(event);
+		});
+		
+		$('button.wikiaid-move-down').click(function(event)
+		{
+			genericListMove(event, wikiaList, -1);
+			wikiaListWriteLocal(event);
 		});
 	}
 
@@ -198,7 +213,6 @@ var defaultComponents =
 	function foundryFormToggle(event, val)
 	{
 		var form = $('div.foundryform');
-		//var btn = $(event.target);
 		var btn = $('button.foundry-add');
 		if(val != undefined && val < 0)
 			form.hide();
@@ -254,8 +268,16 @@ var defaultComponents =
 
 			c.push('<tr class="foundryproject">');
 			c.push('<td class="foundryproject name">');
-			c.push('<button class="foundryproject edit" value="' + i + '">edit</button>');
+			c.push('<div class="foundryproject-name-container">');
+			c.push('<div class="foundryproject-button-container">');
+			c.push('<button class="foundryproject-button foundryproject-edit" value="' + i + '">edit</button>');
+			c.push('<div class="foundryproject-button-move-container">');
+			c.push('<button class="foundryproject-button foundryproject-move-up" value="' + i + '">&#x25b2;</button>');
+			c.push('<button class="foundryproject-button foundryproject-move-down" value="' + i + '">&#x25bc;</button>');
+			c.push('</div>');
+			c.push('</div>');
 			c.push('<a href="https://warframe.wikia.com/wiki/' + item['id'] + '">' + item['name'] + '</a></td>');
+			c.push('</div>');
 			c.push('<td class="foundryproject component ' + (blueprint_owned ? 'owned' : '') + ' blueprint">' + item['blueprint_drop'] + ' (' + item['blueprint'] + ' owned)</td>');
 
 			var component = item['components'][0];
@@ -274,9 +296,21 @@ var defaultComponents =
 		}
 		div.html(c.join(''));
 
-		$('button.foundryproject.edit').click(function(event)
+		$('button.foundryproject-edit').click(function(event)
 		{
 			foundryListEdit(event);
+		});
+
+		$('button.foundryproject-move-up').click(function(event)
+		{
+			genericListMove(event, foundryList, 1);
+			foundryListWriteLocal(event);
+		});
+
+		$('button.foundryproject-move-down').click(function(event)
+		{
+			genericListMove(event, foundryList, -1);
+			foundryListWriteLocal(event);
 		});
 	}
 
@@ -296,23 +330,23 @@ var defaultComponents =
 		}
 		var name = $('input.newproject.name').val();
 		var blueprint_drop = $('input.newproject.blueprint').val();
-		var blueprint = $('input.newproject.blueprint-got').val();
+		var blueprint = Number($('input.newproject.blueprint-got').val());
 		var component1_name = $('input.newproject.comp1-name').val();
 		var component1_drop = $('input.newproject.comp1-drop').val();
-		var component1_need = $('input.newproject.comp1-need').val();
-		var component1_have = $('input.newproject.comp1-have').val();
+		var component1_need = Number($('input.newproject.comp1-need').val());
+		var component1_have = Number($('input.newproject.comp1-have').val());
 		var component2_name = $('input.newproject.comp2-name').val();
 		var component2_drop = $('input.newproject.comp2-drop').val();
-		var component2_need = $('input.newproject.comp2-need').val();
-		var component2_have = $('input.newproject.comp2-have').val();
+		var component2_need = Number($('input.newproject.comp2-need').val());
+		var component2_have = Number($('input.newproject.comp2-have').val());
 		var component3_name = $('input.newproject.comp3-name').val();
 		var component3_drop = $('input.newproject.comp3-drop').val();
-		var component3_need = $('input.newproject.comp3-need').val();
-		var component3_have = $('input.newproject.comp3-have').val();
+		var component3_need = Number($('input.newproject.comp3-need').val());
+		var component3_have = Number($('input.newproject.comp3-have').val());
 		var component4_name = $('input.newproject.comp4-name').val();
 		var component4_drop = $('input.newproject.comp4-drop').val();
-		var component4_need = $('input.newproject.comp4-need').val();
-		var component4_have = $('input.newproject.comp4-have').val();
+		var component4_need = Number($('input.newproject.comp4-need').val());
+		var component4_have = Number($('input.newproject.comp4-have').val());
 
 		var components = 
 		[
@@ -361,6 +395,7 @@ var defaultComponents =
 			return;
 		foundryList.push(item);
 		foundryListWriteLocal(event);
+		foundryFormToggle(event, -1);
 	}
 
 	function foundryListRemoveItem(event, index)
@@ -438,21 +473,39 @@ var defaultComponents =
 
 		shortcutList = data;
 
-		$('button.shortcuts.remove').off('click');
+		$('button.shortcuts-remove').off('click');
+		$('button.shortcuts-move-up').off('click');
+		$('button.shortcuts-move-down').off('click');
 
 		div.html('');
 		c.push('<ul>');
 		for(var i = 0; i < data.length; ++i)
 		{
-			c.push('<li><a href="' + data[i]['link'] + '">' + data[i]['name'] + '</a>');
-			c.push('<button class="shortcut remove" value="' + i + '">x</button></li>');
+			c.push('<li>');
+			c.push('<span><a href="' + data[i]['link'] + '">' + data[i]['name'] + '</a></span>');
+			c.push('<button class="shortcut-button shortcut-move-up" value="' + i + '">&#x25b2;</button>')
+			c.push('<button class="shortcut-button shortcut-move-down" value="' + i + '">&#x25bc;</button>')
+			c.push('<button class="shortcut-button shortcut-remove" value="' + i + '">&#x274c;</button>');
+			c.push('</li>');
 		}
 		c.push('</ul>');
 		div.html(c.join(''));
 		
-		$('button.shortcut.remove').click(function(event)
+		$('button.shortcut-remove').click(function(event)
 		{
 			shortcutListRemove(event);
+		});
+		
+		$('button.shortcut-move-up').click(function(event)
+		{
+			genericListMove(event, shortcutList, 1);
+			shortcutListWriteLocal(event);
+		});
+		
+		$('button.shortcut-move-down').click(function(event)
+		{
+			genericListMove(event, shortcutList, -1);
+			shortcutListWriteLocal(event);
 		});
 	}
 
@@ -479,9 +532,27 @@ var defaultComponents =
 		shortcutListWriteLocal(event);
 	}
 
+	function genericListMove(event, subject, direction)
+	{
+		var index = Number(event.target.value);
+		console.log('Move item ' + index + ' by ' + event.target.outerHTML + (direction > 0 ? ' up' : ' down'));
+
+		if(direction > 0)
+		{
+			if(index <= 0)		//move up - move to lower index
+				return;
+			subject[index-1] = [subject[index], subject[index] = subject[index-1]][0];
+		}
+		else if(direction < 0)	//move down - move to higher index
+		{
+			if(index >= shortcutList.length - 1)
+				return;
+			subject[index+1] = [subject[index], subject[index] = subject[index+1]][0];
+		}
+	}
+
 	function metroReadMoralPoints()
 	{
-		//$.getJSON('data/moralpoints-lastlight.json', function(data)
 		function processJSON(data)
 		{
 			var c = [];
@@ -526,6 +597,7 @@ var defaultComponents =
 
 $(document).ready(function(event)
 {
+
 //// DOCUMENT INITIALIZATION ////
 	$('input.wikiaid').val('');
 	$('input.project').val('');
@@ -565,7 +637,7 @@ $(document).ready(function(event)
 
 	wikiaListReadLocal(event);
 	foundryListReadLocal(event);
-	shortcutListReadLocal(event)
+	shortcutListReadLocal(event);
 
 	metroReadMoralPoints();
 
@@ -636,6 +708,11 @@ $(document).ready(function(event)
 		var field = $('input.newproject.' + comp + '-name').val(defaultComponents[type][comp]);
 	});
 
+	$('button.foundryform.cancel').click(function(event)
+	{
+		foundryFormToggle(event, -1);
+	});
+
 	$('button.foundryform.submit').click(function(event)
 	{
 		foundryListAddItem(event);
@@ -646,14 +723,10 @@ $(document).ready(function(event)
 		//foundryListAddItem(event);
 	});
 
-	$('button.foundryform.cancel').click(function(event)
-	{
-		foundryFormToggle(event, -1);
-	});
-
 	$('button.foundry-add').click(function(event)
 	{
 		$('input.newproject').val('');
+		$('input.newproject.blueprint-got').val('0');
 		$('input.newproject.comp-need').val('1');
 		$('input.newproject.comp-have').val('0');
 		foundryFormToggle(event);
@@ -683,11 +756,6 @@ $(document).ready(function(event)
 		$('input.shortcut').val('');
 		$('div.shortcut-add-form').hide();
 		$('button.shortcut-form-show').show();
-	});
-
-	$('button.shortcut.remove').click(function(event)
-	{
-		shortcutListRemove(event);
 	});
 
 	$('button.moralpointstoggle').click(function(event)

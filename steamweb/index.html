@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/special.css">
+	<link rel="icon" type="image/png" href="../res/icon.png">
+	<link rel="shortcut icon" type="image/png" href="../res/icon.png">
 	
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/app.js"></script>
@@ -104,7 +106,7 @@
 				<div class="subsection foundryform" style="display: none;">
 					New foundry project<br>
 					Name: <input class="newproject name" name="foundryname" type="text"> Wikia ID: <input class="newproject id" name="foundryid" type="text"><br>
-					Blueprint drop: <input type="text" class="newproject blueprint"> Owned: <input type="number" min="0" value="0" class="newproject blueprint-got"><br>
+					Blueprint drop: <input type="text" class="newproject blueprint"> Owned: <input type="number" class="newproject blueprint-got" min="0" value="0"><br>
 					<div class="foundryform-container">
 						<table class="newproject-table">
 							<tr>
@@ -144,7 +146,6 @@
 					<button class="foundryform cancel">Cancel</button>
 					<button hidden class="foundryform delete">Delete</button>
 				</div>
-
 				<div class="subsection foundrylist">
 					<table class="foundrytable">
 						<thead>
@@ -160,8 +161,16 @@
 						<tbody class="foundrycontent">
 							<tr class="foundryproject">
 								<td class="foundryproject name">
-									<button class="foundryproject edit" value="0">edit</button>
-									<a href="https://warframe.wikia.com/wiki/Vectis_Prime">Vectis Prime</a>
+									<div class="foundryproject-name-container">
+										<div class="foundryproject-button-container">
+											<button class="foundryproject-button foundryproject-edit" value="0">edit</button>
+											<div class="foundryproject-button-move-container">
+												<button class="foundryproject-button foundryproject-move-up">&#x25b2;</button>
+												<button class="foundryproject-button foundryproject-move-down">&#x25bc;</button>
+											</div>
+										</div>
+										<a href="https://warframe.wikia.com/wiki/Vectis_Prime">Vectis Prime</a>
+									</div>
 								</td>
 								<td class="foundryproject component blueprint">Relic (3 owned)</td>
 								<td class="foundryproject component"><div class="component-name">Barrel (Relic)</div><div class="component-numbers"><span>0</span>/<span>1</span></div></td>
@@ -169,14 +178,11 @@
 								<td class="foundryproject component"><div class="component-name">Stock (Relic)</div><div class="component-numbers"><span>0</span>/<span>1</span></div></td>
 								<td class="foundryproject component"></td>
 							</tr>
-							</tr>
 						</tbody>
 					</table>
 				</div>
 			</section>
 		</article>
-
-
 		<article id="metro">
 			<h2>Metro</h2>
 			<section>

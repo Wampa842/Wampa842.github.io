@@ -25,7 +25,7 @@ body.night button:active
 }
 body.night button.daynight-style, body.night button.daynight-style:hover, body.night button.daynight-style:active
 {
-	background-color: #212121;
+	/*background-color: #212121;*/
 	box-shadow: none;
 }
 
