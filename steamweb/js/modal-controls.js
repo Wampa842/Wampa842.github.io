@@ -54,8 +54,8 @@ $(document).ready(function()
 	{
 		showModal();
 		title.text("Save local data");
-		message.html("Generate a JSON file to open it in another browser");
-		inputs.html('<button class="modal-box-input modal-box-button-download-json">Generate JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden />' + modalDismissHtml);
+		message.html("Generate a JSON file to open it in another browser<br>");
+		inputs.html('<button class="modal-box-input modal-box-button-download-json">Generate JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden />' + modalDismissHtml + '<a class="modal-box-save-json-file" hidden />');
 		$(modalDismissClass).click(function(event)
 		{
 			hideModal();
@@ -70,19 +70,26 @@ $(document).ready(function()
 				shortcuts: shortcutList
 			};
 			var blob = new Blob([JSON.stringify(data)], {type: "application/json"});
-			var dummy = document.createElement("a");
+			var backupLink = document.createElement("a");
+			var dummyLink = document.createElement("a");
 			var url = URL.createObjectURL(blob);
-			dummy.href = url;
-			dummy.download = "warframe-tracker-data.json";
-			document.body.appendChild(dummy);
-			dummy.click();
-			setTimeout(function()
+			$(backupLink).attr('href', url);
+			$(backupLink).attr('target', '_blank');
+			$(backupLink).html("Click here if you can't download the file.");
+			$(backupLink).css('width', '100%');
+			$(backupLink).appendTo(message);
+
+			$(dummyLink).attr('href', url);
+			$(dummyLink).attr('download', "warframe-tracker-data.json");
+			$('body').append(dummyLink);
+			dummyLink.click();
+
+			$(modalDismissClass).click(function(event)
 			{
-				document.body.removeChild(dummy);
+				$(dummyLink).remove();
+				$(backupLink).remove();
 				window.URL.revokeObjectURL(url);
-			}, 0);
-			hideModal();
-			$(modalDismissClass).off('click');
+			});
 		});
 
 		$('.modal-box-load-json-file').change(function(event)
