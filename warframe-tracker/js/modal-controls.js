@@ -54,7 +54,7 @@ $(document).ready(function()
 	{
 		showModal();
 		title.text("Save/load local data");
-		message.html("Generate a JSON file to open it in another browser<br>");
+		message.html("Generate a JSON file to open it in another browser.<br>For the moment, this is the only way I can think of to transfer data between browsers and devices.<br>Save the JSON file, then open it in another browser to transfer the data - and avoid editing it by hand.<br>");
 		inputs.html('<button class="modal-box-input modal-box-button-download-json">Generate JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden />' + modalDismissHtml + '<a class="modal-box-save-json-file" hidden />');
 		$(modalDismissClass).click(function(event)
 		{
@@ -63,6 +63,9 @@ $(document).ready(function()
 		});
 		$('.modal-box-button-download-json').click(function(event)
 		{
+			if($('.json-download-backup-link').length)
+				$('.json-download-backup-link').remove();
+
 			var data = 
 			{
 				wikia: wikiaList,
@@ -75,9 +78,11 @@ $(document).ready(function()
 			var url = URL.createObjectURL(blob);
 			$(backupLink).attr('href', url);
 			$(backupLink).attr('target', '_blank');
-			$(backupLink).html("Click here if you can't download the file.");
+			$(backupLink).addClass('json-download-backup-link');
+			$(backupLink).html("<strong>Click here if you can't download the file.</strong>");
 			$(backupLink).css('width', '100%');
 			$(backupLink).appendTo(message);
+			$(backupLink).click(function(event){$(backupLink).remove();});
 
 			$(dummyLink).attr('href', url);
 			$(dummyLink).attr('download', "warframe-tracker-data.json");

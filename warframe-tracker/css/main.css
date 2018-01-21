@@ -374,7 +374,7 @@ td.foundryproject
 {
 	font-size: 0.9em;
 	padding: 0px;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 td.foundryproject.name
@@ -457,7 +457,7 @@ div.component-numbers span
 	margin: 0px;
 	display: flex;
 	flex-direction: column;
-	overflow: auto;
+	overflow: hidden;
 	transition-duration: 0.3s;
 	box-shadow: 1px 1px 8px 1px;
 	/*transform: translateX(390px);*/
@@ -465,6 +465,7 @@ div.component-numbers span
 .sidebar:hover
 {
 	transform: translateX(390px);
+	overflow: auto;
 }
 
 .sidebar-settings-container
