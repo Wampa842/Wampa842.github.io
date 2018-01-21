@@ -53,7 +53,7 @@ $(document).ready(function()
 	$('.save-local-data').click(function(event)
 	{
 		showModal();
-		title.text("Save local data");
+		title.text("Save/load local data");
 		message.html("Generate a JSON file to open it in another browser<br>");
 		inputs.html('<button class="modal-box-input modal-box-button-download-json">Generate JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden />' + modalDismissHtml + '<a class="modal-box-save-json-file" hidden />');
 		$(modalDismissClass).click(function(event)
