@@ -24,9 +24,6 @@ var defaultComponents =
 	"melee": {"comp1": "Blade", "comp2": "Hilt", "comp3": "Guard"}
 };
 
-$(document).ready(function(event)
-{
-
 //// METHODS ////
 	function writeSettings(key, value)
 	{
@@ -156,7 +153,7 @@ $(document).ready(function(event)
 			return;
 		}
 
-		wikiaList = data;
+		wikiaList = $.extend(true, [], data);
 
 		$('div.wikialist button.wikiaid.remove').off('click');
 
@@ -237,7 +234,7 @@ $(document).ready(function(event)
 			return;
 		}
 
-		foundryList = data;
+		foundryList = $.extend(true, [], data);
 
 		$('button.foundryproject.edit').off('click');
 
@@ -434,7 +431,7 @@ $(document).ready(function(event)
 		if(data == null || data.length <= 0)
 		{
 			if(data == null)
-				localStorage.setItem(WIKIA_LS_NAME, '[]');
+				localStorage.setItem(SHORTCUTS_LS_NAME, '[]');	//this fucking line
 			div.html('The list is empty.');
 			return;
 		}
@@ -527,7 +524,8 @@ $(document).ready(function(event)
 		});
 	}
 
-
+$(document).ready(function(event)
+{
 //// DOCUMENT INITIALIZATION ////
 	$('input.wikiaid').val('');
 	$('input.project').val('');
@@ -572,14 +570,6 @@ $(document).ready(function(event)
 	metroReadMoralPoints();
 
 //// EVENTS ////
-	$('button.delete-local-data').click(function(event)
-	{
-		if(confirm("WARNING!\nDeleting the local data will remove all wikia items, foundry projects and shortcuts, as well as reset all preferences.\nProceed?"))
-		{
-			localStorage.clear();
-		}
-	});
-
 	$('button.daynight-switch').click(function(event)
 	{
 		$('body').addClass('slow-transform');

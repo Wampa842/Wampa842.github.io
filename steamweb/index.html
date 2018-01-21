@@ -9,6 +9,7 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/clock.js"></script>
+	<script src="js/modal-controls.js"></script>
 </head>
 <body>
 	<div class="background">
@@ -38,6 +39,7 @@
 		<article class="sidebar">
 			<div class="sidebar-settings-container">
 				<!--button class="sidebar-settings-button daynight-switch">Day/night theme</button-->
+				<button class="sidebar-settings-button save-local-data">Save/load data</button>
 				<button class="sidebar-settings-button delete-local-data">Delete local data</button>
 				<button class="sidebar-settings-button toggle-background-image">Background image</button>
 				<button class="sidebar-settings-button toggle-background-blur">Background blur</button>
@@ -84,7 +86,7 @@
 		<article id="warframe">
 			<h2>Warframe</h2>
 			<section class="wikia">
-				<h3>Wikia</h3>
+				<h3>Wikia <a class="help-button modal-help-wikia">(?)</a></h3>
 				<input type="text" class="wikiaid">
 				<button class="wikiaid go">Go</button> <button class="wikiaid add">Add to list...</button>
 				<div style="width: 300px; display: none;" class="subsection wikiaform">
@@ -97,12 +99,12 @@
 				</div>
 			</section>
 			<section class="foundry">
-				<h3>Foundry</h3>
+				<h3>Foundry <a class="help-button modal-help-foundry">(?)</a></h3>
 				<button class="foundry-add">Add new project</button>
 				<div class="subsection foundryform" style="display: none;">
 					New foundry project<br>
-					Name: <input class="newproject name" name="foundryname" type="text"> ID: <input class="newproject id" name="foundryid" type="text"><br>
-					Blueprint: <input type="text" class="newproject blueprint"> <input type="number" min="0" class="newproject blueprint-got"><br>
+					Name: <input class="newproject name" name="foundryname" type="text"> Wikia ID: <input class="newproject id" name="foundryid" type="text"><br>
+					Blueprint drop: <input type="text" class="newproject blueprint"> Owned: <input type="number" min="0" value="0" class="newproject blueprint-got"><br>
 					<div class="foundryform-container">
 						<table class="newproject-table">
 							<tr>
@@ -112,25 +114,25 @@
 								<th>Owned</th>
 							</tr>
 							<tr>
-								<td><input type="text" class="newproject comp1-name"> <a class="foundry-guess warframe comp1">F</a> <a class="foundry-guess gun comp1">G</a> <a class="foundry-guess melee comp1">M</a></td>
+								<td><input type="text" class="newproject comp1-name"> <a class="foundry-guess warframe comp1">W</a> <a class="foundry-guess gun comp1">G</a> <a class="foundry-guess melee comp1">M</a></td>
 								<td><input type="text" class="newproject comp1-drop"></td>
 								<td><input type="number" class="newproject comp-need comp1-need" min="0" value="0"></td>
 								<td><input type="number" class="newproject comp-have comp1-have" min="0" value="0"></td>
 							</tr>
 							<tr>
-								<td><input type="text" class="newproject comp2-name"> <a class="foundry-guess warframe comp2">F</a> <a class="foundry-guess gun comp2">G</a> <a class="foundry-guess melee comp2">M</a></td>
+								<td><input type="text" class="newproject comp2-name"> <a class="foundry-guess warframe comp2">W</a> <a class="foundry-guess gun comp2">G</a> <a class="foundry-guess melee comp2">M</a></td>
 								<td><input type="text" class="newproject comp2-drop"></td>
 								<td><input type="number" class="newproject comp-need comp2-need" min="0" value="0"></td>
 								<td><input type="number" class="newproject comp-have comp2-have" min="0" value="0"></td>
 							</tr>
 							<tr>
-								<td><input type="text" class="newproject comp3-name"> <a class="foundry-guess warframe comp3">F</a> <a class="foundry-guess gun comp3">G</a> <a class="foundry-guess melee comp3">M</a></td>
+								<td><input type="text" class="newproject comp3-name"> <a class="foundry-guess warframe comp3">W</a> <a class="foundry-guess gun comp3">G</a> <a class="foundry-guess melee comp3">M</a></td>
 								<td><input type="text" class="newproject comp3-drop"></td>
 								<td><input type="number" class="newproject comp-need comp3-need" min="0" value="0"></td>
 								<td><input type="number" class="newproject comp-have comp3-have" min="0" value="0"></td>
 							</tr>
 							<tr>
-								<td><input type="text" class="newproject comp4-name"> <a class="foundry-guess warframe comp4">F</a> <a class="foundry-guess gun comp4">G</a> <a class="foundry-guess melee comp4">M</a></td>
+								<td><input type="text" class="newproject comp4-name"> <a class="foundry-guess warframe comp4">W</a> <a class="foundry-guess gun comp4">G</a> <a class="foundry-guess melee comp4">M</a></td>
 								<td><input type="text" class="newproject comp4-drop"></td>
 								<td><input type="number" class="newproject comp-need comp4-need" min="0" value="0"></td>
 								<td><input type="number" class="newproject comp-have comp4-have" min="0" value="0"></td>
@@ -189,5 +191,18 @@
 			</section>
 		</article>
 	</main>
+	<div class="modal-background">
+		<div class="modal-box subsection">
+			<h2 class="modal-box-title">
+				Title
+			</h2>
+			<div class="modal-box-message">
+				Lorem ipsum however this text goes
+			</div>
+			<div class="modal-box-input-container">
+				<button class="modal-box-input modal-box-button-dismiss">Dismiss</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

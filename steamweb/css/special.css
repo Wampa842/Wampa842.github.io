@@ -42,6 +42,7 @@ body.night input[type=text], body.night input[type=number]
 }
 body.night div.subsection
 {
+	background-color: #212121;
 	border-color: #202020;
 	box-shadow: 0px 1px 4px 0px #101010;
 }
@@ -71,9 +72,14 @@ body.night div.background.blur
 	filter: brightness(50%) blur(10px);
 }
 
+body.night .modal-background
+{
+	background-color: #181818c0;
+}
+
 body.bg-image nav, body.bg-image article
 {
-	opacity: 0.6;
+	opacity: 0.8;
 }
 
 body.bg-image .sidebar

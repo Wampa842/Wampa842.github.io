@@ -2,9 +2,12 @@
 
 	Z-indexes
 	Background: 1
+	Background author: 2 (51 on hover)
 	Main: 50
 	Navbar:	60
 	Sidebar: 300
+	Modal background: 500
+	Modal box: 501
 
 */
 /* GENERIC ELEMENTS */
@@ -143,13 +146,23 @@ div.background.blur
 
 div.background-author-container
 {
+	transition: font-size 0.3s;
 	position: fixed;
-	z-index: 51;
+	z-index: 2;
+	/*transform-origin: right;
+	transform: rotate(90deg);*/
 	bottom: 5px;
 	right: 10px;
-	font-size: 0.8em;
+	font-size: 0.7em;
 	opacity: 0.5;
 	text-shadow: 0px 1px 2px black;
+}
+
+div.background-author-container:hover
+{
+	font-size: 1em;
+	opacity: 1;
+	z-index: 51;
 }
 
 nav
@@ -236,11 +249,12 @@ article
 	padding-bottom: 10px;
 }
 
-div.subsection
+.subsection
 {
 	display: block;
 	margin-top: 5px;
 	padding: 5px;
+	background-color: #f9f9f9;
 	border: none;
 	border-color: #d1d1d1;
 	border-radius: 0px;
@@ -448,4 +462,66 @@ div.component-numbers span
 	text-align: center;
 	font-size: 0.6em;
 	border-top: 1px solid;
+}
+
+.help-button
+{
+	font-size: 0.7em;
+	cursor: pointer;
+}
+
+.modal-background
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 500;
+
+	display: none;
+	justify-content: center;
+	align-items: center;
+	background-color: #f9f9f9a0;
+}
+
+.modal-box
+{
+	position: relative;
+	width: 600px;
+	height: auto;
+	z-index: 501;
+
+	box-shadow: 0px 3px 10px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-box-title
+{
+	flex-grow: 0;
+	margin-bottom: 5px;
+}
+
+.modal-box-message
+{
+	flex: 1 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.modal-box-input-container
+{
+	flex-grow: 0;
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.modal-box-input
+{
+	width: 100%;
 }
