@@ -7,6 +7,7 @@ $(document).ready(function()
 	const modalNoClass = '.modal-box-button-no';
 	const modalNoHtml = '<button class="modal-box-input modal-box-button-no">No</button>';
 
+
 	var container = $('.modal-background');
 	var title = $('.modal-box-title');
 	var message = $('.modal-box-message');
@@ -66,13 +67,7 @@ $(document).ready(function()
 			if($('.json-download-backup-link').length)
 				$('.json-download-backup-link').remove();
 
-			var data = 
-			{
-				wikia: wikiaList,
-				foundry: foundryList,
-				shortcuts: shortcutList
-			};
-			var blob = new Blob([JSON.stringify(data)], {type: "application/json"});
+			var blob = new Blob([JSONstringifyAll()], {type: "application/json"});
 			var backupLink = document.createElement("a");
 			var dummyLink = document.createElement("a");
 			var url = URL.createObjectURL(blob);
@@ -102,14 +97,7 @@ $(document).ready(function()
 			var reader = new FileReader();
 			reader.onload = function(event)
 			{
-				//alert(event.target.result);
-				var data = JSON.parse(event.target.result);
-				wikiaList = $.extend(true, [], data["wikia"]);
-				foundryList = $.extend(true, [], data["foundry"]);
-				shortcutList = $.extend(true, [], data["shortcuts"]);
-				wikiaListWriteLocal(event);
-				foundryListWriteLocal(event);
-				shortcutListWriteLocal(event);
+				JSONparseAll(event.target.result);
 			}
 			reader.readAsText(event.target.files[0]);
 		});

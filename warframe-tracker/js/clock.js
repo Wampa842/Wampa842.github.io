@@ -31,7 +31,7 @@ function cetusClockUpdate()
 	var cetusLocalTime = cetusTime * 9.6 + 300;
 	$(".cetus-clock-local").html(minToString(cetusLocalTime));
 	analogClockUpdate(cetusLocalTime);
-};
+}
 
 $(document).ready(function(event)
 {

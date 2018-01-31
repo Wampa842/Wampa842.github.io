@@ -25,6 +25,28 @@ var defaultComponents =
 };
 
 //// METHODS ////
+	function JSONstringifyAll()
+	{
+		var data =
+		{
+			wikia: wikiaList,
+			foundry: foundryList,
+			shortcuts: shortcutList
+		};
+		return JSON.stringify(data);
+	}
+
+	function JSONparseAll(s)
+	{
+		var data = JSON.parse(s);
+		wikiaList = $.extend(true, [], data["wikia"]);
+		foundryList = $.extend(true, [], data["foundry"]);
+		shortcutList = $.extend(true, [], data["shortcuts"]);
+		wikiaListWriteLocal(event);
+		foundryListWriteLocal(event);
+		shortcutListWriteLocal(event);
+	}
+
 	function writeSettings(key, value)
 	{
 		if(!key || typeof key !== 'string')
