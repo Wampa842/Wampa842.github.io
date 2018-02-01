@@ -611,11 +611,21 @@ td.foundryproject:hover button.foundryproject-plusminus
 	padding-right: 20px;
 }
 
-.modal-box-input-container
+.modal-box-container
+{
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+}
+
+.modal-box-input-row
 {
 	flex-grow: 0;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: nowrap;
 	margin-top: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -623,5 +633,16 @@ td.foundryproject:hover button.foundryproject-plusminus
 
 .modal-box-input
 {
+	margin-top: 0px;
+	flex: 0 1 auto;
 	width: 100%;
+}
+
+.modal-box-input-label
+{
+	margin-top: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	flex: 1 1 auto;
+	white-space: nowrap;
 }
