@@ -47,6 +47,16 @@ var defaultComponents =
 		shortcutListWriteLocal(event);
 	}
 
+	function saveDataRemote()
+	{
+		alert('Saving to remote server is TBI');
+	}
+
+	function loadDataRemote()
+	{
+		alert('Loading from remote server is TBI');
+	}
+
 	function writeSettings(key, value)
 	{
 		if(!key || typeof key !== 'string')
