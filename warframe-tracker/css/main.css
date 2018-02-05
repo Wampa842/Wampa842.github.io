@@ -15,7 +15,7 @@
 @font-face
 {
 	font-family: 'roboto';
-	src: url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff2') format('woff2');
+	src: url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff') format('woff');
 	font-weight: 300;
 }
 
@@ -70,12 +70,17 @@ button
 	box-shadow: 0px 1px 4px 0px;
 }
 
-button:hover
+button[disabled]
+{
+	opacity: 0.5;
+}
+
+button:not([disabled]):hover
 {
 	box-shadow: 0px 2px 8px 0px;
 }
 
-button:active
+button:not([disabled]):active
 {
 	box-shadow: 0px 4px 5px 0px;
 	padding-left: 8px;

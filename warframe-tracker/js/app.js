@@ -98,6 +98,9 @@ var defaultComponents =
 
 	function toggleBackground(event, mode, blur)
 	{
+		return; //Note to self: uncomment the ajax request in the document.onready event
+		if(backgroundImages <= 0)
+			bgImageEnabled = false;
 		bgImageEnabled = mode || mode == 'true';
 		bgImageBlur = blur || blur == 'true';
 
@@ -105,7 +108,7 @@ var defaultComponents =
 		writeSettings('background-image', bgImageEnabled);
 		writeSettings('background-blur', bgImageBlur);
 
-		if(mode)
+		if(bgImageEnabled)
 		{
 			$('body').addClass('bg-image');
 			var l = backgroundImages.length;
@@ -124,7 +127,7 @@ var defaultComponents =
 			$('span.background-author').hide();
 		}
 
-		if(blur)
+		if(bgImageBlur)
 		{
 			$('div.background').addClass('blur');
 		}
@@ -635,7 +638,7 @@ $(document).ready(function(event)
 		bgImageEnabled = readSettings('background-image');
 		bgImageBlur = readSettings('background-blur');
 
-		$.ajax(
+		/*$.ajax(
 		{
 			dataType: "json",
 			url: "data/backgrounds.json",
@@ -649,7 +652,7 @@ $(document).ready(function(event)
 				}
 				toggleBackground(null, bgImageEnabled, bgImageBlur);
 			}
-		});
+		});*/
 	}
 	else
 	{
@@ -780,7 +783,7 @@ $(document).ready(function(event)
 		$('button.shortcut-form-show').show();
 	});
 
-	$('button.moralpointstoggle').click(function(event)
+	/*$('button.moralpointstoggle').click(function(event)
 	{
 		var btn = $(event.target);
 		if(btn.hasClass('m2033'))
@@ -801,5 +804,5 @@ $(document).ready(function(event)
 			else
 				btn.text('Show Metro Last Light moral points');
 		}
-	});
+	});*/
 });
