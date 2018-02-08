@@ -441,14 +441,28 @@ div.component-numbers
 {
 	display: flex;
 	align-items: stretch;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 div.component-numbers span
 {
 	text-align: center;
-	flex-grow: 1;
+	flex: 1 0 auto;
+}
+
+button.foundryproject-plusminus
+{
+	flex: 0 1 0;
+	display: inline-block;
+	visibility: hidden;
+	transition: visibility 0s;
+	font-weight: bold;
+}
+
+td.foundryproject:hover button.foundryproject-plusminus
+{
+	visibility: visible;
 }
 
 .sidebar

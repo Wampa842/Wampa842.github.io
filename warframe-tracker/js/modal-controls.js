@@ -51,12 +51,12 @@ $(document).ready(function()
 		});
 	});
 
-	$('.save-local-data').click(function(event)
+	$('.manage-local-data').click(function(event)
 	{
 		showModal();
 		title.text("Save/load local data");
-		message.html("Generate a JSON file to open it in another browser.<br>For the moment, this is the only way I can think of to transfer data between browsers and devices.<br>Save the JSON file, then open it in another browser to transfer the data - and avoid editing it by hand.<br>");
-		inputs.html('<button class="modal-box-input modal-box-button-download-json">Generate JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden />' + modalDismissHtml + '<a class="modal-box-save-json-file" hidden />');
+		message.html("To transfer data between browsers, generate a JSON file, save it, then load it in the other browser. For the moment, this is the only way I can think of to sync data between browsers and devices.<br>");
+		inputs.html('<button class="modal-box-input modal-box-button-download-json">Save JSON file</button><button class="modal-box-input modal-box-button-load-json-dummy">Load JSON file</button><input class="modal-box-load-json-file" type="file" hidden /><button class="modal-box-input delete-local-data">Delete local data</button>' + modalDismissHtml + '<a class="modal-box-save-json-file" hidden />');
 		$(modalDismissClass).click(function(event)
 		{
 			hideModal();
@@ -67,14 +67,14 @@ $(document).ready(function()
 			if($('.json-download-backup-link').length)
 				$('.json-download-backup-link').remove();
 
-			var blob = new Blob([JSONstringifyAll()], {type: "application/json"});
+			var blob = new Blob([JSONstringifyAll(event)], {type: "application/json"});
 			var backupLink = document.createElement("a");
 			var dummyLink = document.createElement("a");
 			var url = URL.createObjectURL(blob);
 			$(backupLink).attr('href', url);
 			$(backupLink).attr('target', '_blank');
 			$(backupLink).addClass('json-download-backup-link');
-			$(backupLink).html("<strong>Click here if you can't download the file.</strong>");
+			$(backupLink).html("<strong>If you can't download the file, click here and copy-paste the text that appears into a text file.</strong>");
 			$(backupLink).css('width', '100%');
 			$(backupLink).appendTo(message);
 			$(backupLink).click(function(event){$(backupLink).remove();});
@@ -97,7 +97,7 @@ $(document).ready(function()
 			var reader = new FileReader();
 			reader.onload = function(event)
 			{
-				JSONparseAll(event.target.result);
+				JSONparseAll(event.target.result, event);
 			}
 			reader.readAsText(event.target.files[0]);
 		});

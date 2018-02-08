@@ -25,7 +25,7 @@ var defaultComponents =
 };
 
 //// METHODS ////
-	function JSONstringifyAll()
+	function JSONstringifyAll(event)
 	{
 		var data =
 		{
@@ -36,7 +36,7 @@ var defaultComponents =
 		return JSON.stringify(data);
 	}
 
-	function JSONparseAll(s)
+	function JSONparseAll(s, event)
 	{
 		var data = JSON.parse(s);
 		wikiaList = $.extend(true, [], data["wikia"]);
@@ -303,19 +303,19 @@ var defaultComponents =
 			c.push('</div>');
 			c.push('<a href="https://warframe.wikia.com/wiki/' + item['id'] + '">' + item['name'] + '</a></td>');
 			c.push('</div>');
-			c.push('<td class="foundryproject component ' + (blueprint_owned ? 'owned' : '') + ' blueprint">' + item['blueprint_drop'] + ' (' + item['blueprint'] + ' owned)</td>');
-
+			//c.push('<td class="foundryproject component ' + (blueprint_owned ? 'owned' : '') + ' blueprint"><button class="foundryproject-plusminus" value="i-' + i + '-0">+</button><span>' + item['blueprint_drop'] + ' (' + item['blueprint'] + ' owned)</span><button class="foundryproject-plusminus" value="i-' + i + '-0">+</button></td>');
+			c.push('<td class="foundryproject component ' + (blueprint_owned ? 'owned' : '') + ' blueprint"><div class="component-name">' + item['blueprint_drop'] + '</div><div class="component-numbers"><button class="foundryproject-button foundryproject-plusminus" value="i-' + i + '-0">+</button><span>' + item['blueprint'] + '</span><button class="foundryproject-button foundryproject-plusminus" value="d-' + i + '-0">-</button></div></td>');
 			var component = item['components'][0];
-			c.push('<td class="foundryproject component ' + (comp1_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span></div>' : '') + '</td>');
+			c.push('<td class="foundryproject component ' + (comp1_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><button class="foundryproject-button foundryproject-plusminus" value="i-' + i + '-1">+</button><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span><button class="foundryproject-button foundryproject-plusminus" value="d-' + i + '-1">-</button></div>' : '') + '</td>');
 
 			component = item['components'][1];
-			c.push('<td class="foundryproject component ' + (comp2_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span></div>' : '') + '</td>');
+			c.push('<td class="foundryproject component ' + (comp2_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><button class="foundryproject-button foundryproject-plusminus" value="i-' + i + '-2">+</button><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span><button class="foundryproject-button foundryproject-plusminus" value="d-' + i + '-2">-</button></div>' : '') + '</td>');
 
 			component = item['components'][2];
-			c.push('<td class="foundryproject component ' + (comp3_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span></div>' : '') + '</td>');
+			c.push('<td class="foundryproject component ' + (comp3_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><button class="foundryproject-button foundryproject-plusminus" value="i-' + i + '-3">+</button><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span><button class="foundryproject-button foundryproject-plusminus" value="d-' + i + '-3">-</button></div>' : '') + '</td>');
 
 			component = item['components'][3];
-			c.push('<td class="foundryproject component ' + (comp4_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span></div>' : '') + '</td>');
+			c.push('<td class="foundryproject component ' + (comp4_owned ? 'owned' : '') + '"><div class="component-name">' + component['name'] + (component['drop'] != '' ? ' (' + component['drop'] + ')' : '') + '</div>' + (component['name'] != '' ? '<div class="component-numbers"><button class="foundryproject-button foundryproject-plusminus" value="i-' + i + '-4">+</button><span>' + component['owned'] + '</span>/<span>' + component['required'] + '</span><button class="foundryproject-button foundryproject-plusminus" value="d-' + i + '-4">-</button></div>' : '') + '</td>');
 			c.push('</tr>');
 
 		}
@@ -336,6 +336,11 @@ var defaultComponents =
 		{
 			genericListMove(event, foundryList, -1);
 			foundryListWriteLocal(event);
+		});
+
+		$('button.foundryproject-plusminus').click(function(event)
+		{
+			foundryListPlusMinus(event);
 		});
 	}
 
@@ -483,6 +488,29 @@ var defaultComponents =
 		$('input.newproject.comp4-have').val(foundryList[index]['components'][3]['owned']);
 	}
 
+	function foundryListPlusMinus(event)
+	{
+		var data = event.target.value.split("-");
+		var delta = (data[0] == "i" ? 1 : (data[0] == "d" ? -1 : 0));
+		var index = Number(data[1]);
+		var component = Number(data[2]);
+		if(component == 0)
+		{
+			if(foundryList[index]["blueprint"] + delta < 0)
+				return;
+			foundryList[index]["blueprint"] += delta;
+		}
+		else
+		{
+			if(foundryList[index]["components"][component-1]["owned"] + delta < 0)
+				return;
+			foundryList[index]["components"][component-1]["owned"] += delta;
+		}
+
+
+		foundryListWriteLocal(event);
+	}
+
 	function shortcutListReadLocal(event)
 	{
 		var c = [];
@@ -559,7 +587,7 @@ var defaultComponents =
 
 	function genericListMove(event, subject, direction)
 	{
-		var index = Number(event.target.value);
+		var index = Number(event.target.value);	//I spent two hours sucking dick to figure out I had to cast the value into a number. Apparently 1 + 1 = 11 in JS.
 		console.log('Move item ' + index + ' by ' + event.target.outerHTML + (direction > 0 ? ' up' : ' down'));
 
 		if(direction > 0)
