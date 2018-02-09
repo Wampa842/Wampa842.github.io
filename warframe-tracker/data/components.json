@@ -1,0 +1,48 @@
+[
+	{
+        "id":"Akstiletto_Prime",
+        "name":"Akstiletto Prime",
+        "blueprint_drop":"L-A2-R",
+        "components":
+        [
+            {
+                "name":"Barrel",
+                "drop":"M-K1-U",
+                "required":2
+            },
+            {
+                "name":"Receiver",
+                "drop":"A-O1-U",
+                "required":2
+            },
+            {
+                "name":"Link",
+                "drop":"M-O1-U",
+                "required":1
+            }
+        ]
+    },
+    {
+        "id":"Ember_Prime",
+        "name":"Ember Prime",
+        "blueprint_drop":"M-E1-R",
+        "components":
+        [
+            {
+                "name":"Chassis",
+                "drop":"N-F1-C",
+                "required":1,
+            },
+            {
+                "name":"Neuroptics",
+                "drop":"M-F3-C",
+                "required":1,
+            },
+            {
+                "name":"Systems",
+                "drop":"A-S2-U",
+                "required":1,
+            }
+        ]
+    }
+]
