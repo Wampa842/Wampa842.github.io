@@ -529,9 +529,20 @@ td.foundryproject:hover button.foundryproject-plusminus
 	text-align: center;
 }
 
-.cetus-clocks .cetus-clock-countdown
+.cetus-clock-eidolon
 {
-	font-size: 2em;
+	font-size: 2.2em;
+}
+
+.cetus-bounties-label
+{
+	margin-top: 10px;
+	font-size: 0.85em;
+}
+
+.cetus-clock-bounties
+{
+	font-size: 1.2em;
 }
 
 .cetus-clock-analog-container

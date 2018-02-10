@@ -26,7 +26,8 @@ function cetusClockUpdate()
 	var cetusTime = ((now - startTime) / 60) % 150;	//Cetus time of day in minutes
 	$(".cetus-period").html(cetusTime > 100 ? "until sunrise" : "until sunset");
 	var nextPeriod = cetusTime > 100 ? 150 : 100;
-	$(".cetus-clock-countdown").html(minToString(nextPeriod - cetusTime));
+	$(".cetus-clock-eidolon").html(minToString(nextPeriod - cetusTime));
+	$(".cetus-clock-bounties").html(minToString(150 - cetusTime));
 
 	var cetusLocalTime = cetusTime * 9.6 + 300;
 	$(".cetus-clock-local").html(minToString(cetusLocalTime));
