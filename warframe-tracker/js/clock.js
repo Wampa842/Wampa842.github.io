@@ -22,7 +22,7 @@ function cetusClockUpdate()
 
 	var date = new Date();
 	var now = date.getTime() / 1000;	//current time since Unix epoch in seconds
-    var startTime = 1510885052;	//time of a PoE sunrise since Unix epoch in seconds, shamelessly copied from the code of clockofeidolon.com by Lyneca (MIT license). I don't know how the fuck you came up with such a specific number, but I applaud the accuracy.
+    var startTime = 1510884902;	//time of a PoE sunrise since Unix epoch in seconds, shamelessly copied from the code of clockofeidolon.com by Lyneca (MIT license). I don't know how the fuck you came up with such a specific number, but I applaud the accuracy.
 	var cetusTime = ((now - startTime) / 60) % 150;	//Cetus time of day in minutes
 	$(".cetus-period").html(cetusTime > 100 ? "until sunrise" : "until sunset");
 	var nextPeriod = cetusTime > 100 ? 150 : 100;
