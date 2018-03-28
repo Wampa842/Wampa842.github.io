@@ -1,0 +1,32 @@
+
+
+https://wampa842.github.io/warframe-tracker
+
+This is a web application that keeps track of some important data (foundry projects, wikia shortcuts, web shortcuts) with a clock that shows Cetus-related times.  
+This has been a passion project of mine for over two months, and my first big project that uses JavaScript extensively. I never really used JS for anything but simple show/hide buttons - every method, every line of code and every frustrating hour spent finding a bug\* was a learning experience. 
+
+Current features:  
+- Wikia list: a simple text field that lets you jump to whichever Wikia article's title you've entered. You can also save frequently visited articles.  
+- Foundry projects: keeps track of items you want to build, their components, drop locations/relics, and owned/required quantities. Also provides links to the items' Wikia articles.  
+- Cetus clock: shows in-game time of day, and real world time left until sunset/sunrise.  
+- Web shortcuts: generic links to online resources and websites.  
+- Under development - more to come!
+
+I made the entire app with Steam's in-game browser in mind (as a home page), for players with low-end computers that can't run a browser like Firefox or Chrome in the background.  
+As such:  
+- All data is stored locally, on the client browser. Very little static data is loaded from the host. (for nerds like me: I used `localStorage`)  
+- There are no images. All graphics are highly optimized SVG files.  
+- I've implemented background images, but they're disabled at the moment for legal reasons. When I re-enable them, the user can choose not to activate the feature, in which case the images won't be loaded.  
+- Light and dark themes.  
+- I tried to make the layout clutter-free while also keeping it aesthetic. Only relevant data is shown in the main section. The clock, the web shortcuts and the settings were placed in a sidebar.  
+- Since all data is stored locally, syncing it between browsers or computers is tedious at best, but more on that later.  
+- No ads, no analytics, no CDNs (except the font file), no unnecessary third-party scripts.  
+
+Future plans:  
+- A better way to sync data between browsers. Github Pages doesn't run PHP scripts, so cross-origin is the only way.  
+- Binomial calculator to calculate various probabilities (e.g. relic shares).  
+- Mobile support maybe?
+
+Special thanks:
+- u/Real_Markcreator and his Acolyte Tracker for inspiring me to start learning JS
+- u/Lyneca for calculating the timestamp of a PoE sunrise in clockofeidolon.com's code

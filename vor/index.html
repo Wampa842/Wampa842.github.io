@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Look at them...</title>
+	<script src="../warframe-tracker/js/jquery-3.3.1.min.js"></script>
+	<script>
+		var keys = ["adjective","group","objects","person","place","fraction","objectname","object","objects2","career","relatives","verb","verb2","description","verb3","adjective2"];
+		var original = "Look at them, they come to this place when they know they are not {adjective}. {group} use the {objects}, but they are mere trespassers. Only I, {person}, know the true power of {place}. I was cut in {fraction}, destroyed, but through its {objectname} {object}, {place} called to me. It brought me here and here I was reborn. We cannot blame these {objects2}, they are being led by a false {career}, an impostor who knows not the secrets of {place}. Behold {group}, come to scavenge and desecrate this sacred realm. My {relatives}, did I not tell of this day? Did I not {verb} this moment? Now, I will stop them. Now I am changed, reborn through the energy of the {objectname} {object}. Forever bound to {place}. Let it be known, if the {group} want true salvation, they will {verb2} down their arms, and wait for the baptism of my {objectname} {object}. It is time. I will teach these {description} the redemptive power of my {objectname} {object}. They will learn its simple truth. The {group} are lost, and they will resist. But I, {person}, will {verb3} this place of their {adjective2}.";
+
+
+		$(document).ready(function(event)
+		{
+			$('.madlibs-submit').click(function(event)
+			{
+				var edited = original;
+				keys.forEach(function(key)
+				{
+					edited = edited.replace(new RegExp("{" + key + "}", "g"), $('input.' + key).val());
+					console.log("replace", "{" + key + "}", $('input.' + key).val());
+				});
+				$('.madlibs-output').text(edited);
+			});
+		});
+	</script>
+	<style>
+		.madlibs-output
+		{
+			border: 1px black solid;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="madlibs-form">
+		<table>
+			<tr>
+				<td>An adjective:</td>
+				<td><input type="text" class="adjective"></td>
+			</tr>
+			<tr>
+				<td>A group:</td>
+				<td><input type="text" class="group"></td>
+			</tr>
+			<tr>
+				<td>A plural noun:</td>
+				<td><input type="text" class="objects"></td>
+			</tr>
+			<tr>
+				<td>Your name:</td>
+				<td><input type="text" class="person"></td>
+			</tr>
+			<tr>
+				<td>A location:</td>
+				<td><input type="text" class="place"></td>
+			</tr>
+			<tr>
+				<td>A fraction:</td>
+				<td><input type="text" class="fraction"></td>
+			</tr>
+			<tr>
+				<td>A word:</td>
+				<td><input type="text" class="objectname"></td>
+			</tr>
+			<tr>
+				<td>A singular noun:</td>
+				<td><input type="text" class="object"></td>
+			</tr>
+			<tr>
+				<td>Another plural noun:</td>
+				<td><input type="text" class="objects2"></td>
+			</tr>
+			<tr>
+				<td>A career:</td>
+				<td><input type="text" class="career"></td>
+			</tr>
+			<tr>
+				<td>Relatives:</td>
+				<td><input type="text" class="relatives"></td>
+			</tr>
+			<tr>
+				<td>A verb:</td>
+				<td><input type="text" class="verb"></td>
+			</tr>
+			<tr>
+				<td>Another verb:</td>
+				<td><input type="text" class="verb2"></td>
+			</tr>
+			<tr>
+				<td>Plural one-word description:</td>
+				<td><input type="text" class="description"></td>
+			</tr>
+			<tr>
+				<td>Another verb:</td>
+				<td><input type="text" class="verb3"></td>
+			</tr>
+			<tr>
+				<td>Another noun:</td>
+				<td><input type="text" class="adjective2"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button class="madlibs-submit">Go</button></td>
+			</tr>
+		</table>
+	</div>
+	<div class="madlibs-output">
+		<p>
+		</p>
+	</div>
+</body>
+</html>
