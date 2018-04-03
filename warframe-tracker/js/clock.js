@@ -1,31 +1,25 @@
 
 /* Fetches the Unix timestamp of the last time the Cetus bounties reset, from the official world state file(s).
- * The first parameter defines the platform: 1 is PC, 2 is PS4 and 3 is XBox 1.
- * 0, null or undefined doesn't fetch the data and returns a static timestamp.
+ * The first parameter defines whether to fetch the timestamp from the world state file.
+ * If false or undefined, the function doesn't fetch the data and returns a static timestamp.
  * The Cetus time is then passed to the callback function. I know it's a mess - I'll try to clean it up when I have more time and coffee.
  */
 function getCetusTime(platform, callback)
 {
-	var timestamp = 1510884902;	//Static timestamp to be returned in case of an error. Correct as of 2018-02-13, for PC version 22.12.2. Might not be accurate in the future.
-	if(!platform || (platform > 3))
+	var timestamp = 1522764301;	//Static timestamp to be returned in case of an error. Correct as of 2018-04-03, for PC version 22.17.0.1. Might not be accurate in the future.
+	if(!platform)
 	{
 		callback(timestamp);
 		return;
 	}
 
-	var worldStateUrls =
-	[
-		"http://content.warframe.com/dynamic/worldState.php",
-		"http://content.ps4.warframe.com/dynamic/worldState.php",
-		"http://content.xb1.warframe.com/dynamic/worldState.php"
-	];
+	var worldStateFileUrl = "http://content.warframe.com/dynamic/worldState.php";
 
-	//var worldStateUrl = "https://www.whateverorigin.org/get?url=" + encodeURIComponent(worldStateUrls[platform-1]) + "&callback=?";
-	var worldStateUrl = "https://allorigins.me/get?url=" + encodeURIComponent(worldStateUrls[platform-1]);
+	var worldStateCORSUrl = "https://whatever-origin.herokuapp.com/get?callback=?&url=" + encodeURIComponent(worldStateFileUrl);
 
 	$.ajax(
 	{
-		url: worldStateUrl,
+		url: worldStateCORSUrl,
 		dataType: "json",
 		mimeType: "application/json",
 		success: function(data)
