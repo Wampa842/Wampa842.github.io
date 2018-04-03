@@ -20,7 +20,8 @@ function getCetusTime(platform, callback)
 		"http://content.xb1.warframe.com/dynamic/worldState.php"
 	];
 
-	var worldStateUrl = "http://www.whateverorigin.org/get?url=" + encodeURIComponent(worldStateUrls[platform-1]) + "&callback=?";
+	//var worldStateUrl = "https://www.whateverorigin.org/get?url=" + encodeURIComponent(worldStateUrls[platform-1]) + "&callback=?";
+	var worldStateUrl = "https://allorigins.me/get?url=" + encodeURIComponent(worldStateUrls[platform-1]);
 
 	$.ajax(
 	{
