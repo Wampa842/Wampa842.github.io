@@ -6,7 +6,7 @@ if [[ ! -n "$1" ]]
 then
 	echo "No argument supplied - looking for EE.log in the default location"
 	FILE="${LOCALAPPDATA}/Warframe/EE.log"
-	if [[ ! -f "$FILE" ]]
+	if [[ ! -e "$FILE" ]]
 	then
 		echo "File not found - trying ./EE.log"
 		FILE="./EE.log"
