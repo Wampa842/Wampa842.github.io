@@ -3,6 +3,8 @@
 	Original JavaScript and regex patterns by semlar, C implementation by Wampa842
 */
 
+//#define DEBUG
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -81,7 +83,6 @@ time_t getStartTime(char * line)
 	return mktime(&t);
 }
 
-
 FILE * file;
 char * url;
 time_t starttime = 0;
@@ -116,9 +117,12 @@ int main(int argc, char ** argv)
 		}
 	}
 
+	printf("Opening file at %s\n", url);
+	puts("Depending on your system and time zone, daylight saving time might not be reflected correctly in the time stamps.\n");
+	puts("--- BEGIN LOG ---");
+
 	char line[MAX_LENGTH];
 	int counter = 0;
-	puts("--- BEGIN LOG ---");
 
 	while(fgets(line, MAX_LENGTH, file) != NULL)
 	{
@@ -131,8 +135,6 @@ int main(int argc, char ** argv)
 		if(!starttime && strstr(line, "Sys [Diag]: Current time") != NULL)
 		{
 			starttime = getStartTime(line);
-			if(starttime)
-				printf("Found start time\n");
 		}
 
 		/* Extract strings */
@@ -163,7 +165,7 @@ int main(int argc, char ** argv)
 		mktime(&time);
 
 		#ifdef DEBUG
-		printf("Time %02d:%02d:%02d\n", time.tm_hour, time.tm_min, time.tm_sec);
+		printf("Time %02d:%02d:%02d - %d\n", time.tm_hour, time.tm_min, time.tm_sec, time.tm_isdst);
 		printf("Actor %.*s\n", actor_length, actor_begin);
 		printf("Damage %s\n", trim(damage));
 		printf("Health %s\n", trim(health));

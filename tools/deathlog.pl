@@ -23,7 +23,7 @@ if(!(-e $url))
 	print "File not found\n";
 }
 
-print "Opening file at $url\n";
+print "Opening file at $url\n\n";
 open(my $file, '<', $url) or die "can't open $url\n";
 
 my $startTimeRegex = '^([0-9\.]+).*Sys \[Diag\]: Current time.*\[UTC: (.*)\]$';
@@ -38,7 +38,7 @@ while(<$file>)
 {
 	if(!$startTimeFound && $_ =~ $startTimeRegex)
 	{
-		$startTime = Time::Piece->strptime($2, '%a %b %d %H:%M:%S %Y') + $1;
+		$startTime = Time::Piece->strptime($2, '%a %b %d %H:%M:%S %Y') + $1 + localtime->tzoffset();
 		$startTimeFound = 1;
 	}
 	if($_ =~ $damageRegex)
@@ -54,4 +54,4 @@ while(<$file>)
 }
 
 print "---  END LOG  ---\n\n";
-system("pause");
+#system("pause");

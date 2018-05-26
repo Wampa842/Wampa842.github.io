@@ -13,7 +13,7 @@ if($File.Length -le 0)
         $File = ".\EE.log"
     }
 }
-echo "Opening file at ""$File"""
+echo "Opening file at $File"
 
 $StartTimeRegex="^([0-9\.]+).*Sys \[Diag\]: Current time.*\[UTC: (.*)\]$"
 $DamageRegex="^([0-9\.]+) Game \[Info\]: ([^\r\n]+.*) was killed by ([^\r\n]+.*) damage ?([^\r\n].*$)"
@@ -42,7 +42,7 @@ try
             {
                 $Damage = ("???", $Damage[0])
             }
-            echo "$($StartTime.AddSeconds($Matches[1]).ToString("H:mm:ss")) $($Matches[2]) took $($Damage[1].Trim()) damage at $($Damage[0].Trim()) health $($Matches[4])"
+            echo "$($StartTime.AddSeconds($Matches[1]).ToLocalTime().ToString("H:mm:ss")) $($Matches[2]) took $($Damage[1].Trim()) damage at $($Damage[0].Trim()) health $($Matches[4])"
         }
     }
 }
@@ -53,6 +53,6 @@ catch
     exit
 }
 echo "---  END LOG  ---"
-echo ""
-echo "Press a key to exit..."
-[void][System.Console]::ReadKey($true)
+#echo ""
+#echo "Press a key to exit..."
+#[void][System.Console]::ReadKey($true)

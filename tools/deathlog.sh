@@ -2,56 +2,54 @@
 # WARFRAME death log
 # Original JavaScript and regex patterns by semlar, Bash implementation by Wampa842
 
-if [[ ! -n "$1" ]]
+if [[ -z "$1" ]]
 then
 	echo "No argument supplied - looking for EE.log in the default location"
-	FILE="${LOCALAPPDATA}/Warframe/EE.log"
-	if [[ ! -e "$FILE" ]]
+	file="${LOCALAPPDATA}/Warframe/EE.log"
+	if [[ ! -e "${file}" ]]
 	then
 		echo "File not found - trying ./EE.log"
-		FILE="./EE.log"
+		file="./EE.log"
 	fi
 else
-	FILE=$1
+	file="$1"
 fi
-if [[ ! -e $FILE ]]; then
-	echo "ERROR: File not found:"
-	echo "$FILE"
-	read -p "Press a key to exit..."
+if [[ ! -e $file ]]; then
+	echo "ERROR: File not found: ${file}" >&2
+	#read -p "Press a key to exit..."
 	exit 1
 fi
 
-REGEX_STARTTIME=".*\[UTC: (.*)\]$"
-REGEX_DAMAGE="^([0-9\.]+) Game \[Info\]: ([^\r\n]+.*) was killed by ([^\r\n]+.*) damage ?([^\r\n].*$)"
+starttime_regex=".*\[UTC: (.*)\]$"
+damage_regex="^([0-9\.]+) Game \[Info\]: ([^\r\n]+.*) was killed by ([^\r\n]+.*) damage ?([^\r\n].*$)"
 
-STARTTIME_S=`cat $FILE | grep "Sys \[Diag\]: Current time"`
+starttime_s=`cat ${file} | grep -m 1 "Sys \[Diag\]: Current time"`
 
-[[ $STARTTIME_S =~ $REGEX_STARTTIME ]]
-let STARTTIME=`date --date="${BASH_REMATCH[1]}" +%s`
+[[ $starttime_s =~ $starttime_regex ]]
+let starttime=`date --date="${BASH_REMATCH[1]} UTC" +%s`
 
-echo "Opening file at $FILE"
+echo "Opening file at ${file}"
 
 echo ""
 echo "--- BEGIN LOG ---"
 
-while IFS='' read -r LINE
+while IFS='' read -r line
 do
-	if [[ $LINE =~ $REGEX_DAMAGE ]]
+	if [[ $line =~ $damage_regex ]]
 	then
 		IFS='/ '
-		#read -r -a DAMAGE <<< `echo ${BASH_REMATCH[2]} | sed "s/,//g"`
-		read -r -a DAMAGE <<< ${BASH_REMATCH[3]}
-		if [[ ! -n ${DAMAGE[0]} ]]
+		read -r -a damage <<< ${BASH_REMATCH[3]}
+		if [[ ! -n ${damage[0]} ]]
 		then
-			DAMAGE[0]=${DAMAGE[1]}
-			DAMAGE[1]="???"
+			damage[0]=${damage[1]}
+			damage[1]="???"
 		fi
-		let TIME=STARTTIME+`printf %.0f ${BASH_REMATCH[1]}`
-		TIME=`date --date=@$TIME +%T`
-		echo "$TIME ${BASH_REMATCH[2]} took ${DAMAGE[1]} damage at ${DAMAGE[0]} health ${BASH_REMATCH[4]}"
+		let time=starttime+`printf %.0f ${BASH_REMATCH[1]}`
+		time=`date --date=@${time} +%T`
+		echo "${time} ${BASH_REMATCH[2]} took ${damage[1]} damage at ${damage[0]} health ${BASH_REMATCH[4]}"
 	fi
-done < $FILE
+done < "${file}"
 
 echo "---  END LOG  ---"
-echo ""
-read -p "Press a key to exit..."
+#echo ""
+#read -p "Press a key to exit..."
