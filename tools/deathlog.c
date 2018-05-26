@@ -3,8 +3,6 @@
 	Original JavaScript and regex patterns by semlar, C implementation by Wampa842
 */
 
-//#define DEBUG
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,10 +11,9 @@
 
 #define MAX_LENGTH 1000
 
-/*
-2579.924 Game [Info]: CARRIER PRIME was killed by 227 / 226 damage from a level 91 NOX using a GrnChemstrikeNoxRifle
-line ends with CR+LF
-*/
+FILE * file;
+char * url;
+time_t starttime = 0;
 
 /* Trim whitespaces from the beginning and end of the string */
 char * trim(char * str)
@@ -65,14 +62,8 @@ int monthToInt(char * s)
 /* Return seconds since epoch until EE.log's "current time" entry */
 time_t getStartTime(char * line)
 {
-	/*
-0.153 Sys [Diag]: Current time: Sat May 12 20:36:33 2018 [UTC: Sat May 12 18:36:33 2018]
-	*/
-
 	/* Extract UTC time from string */
 	char * s = strstr(line, "[UTC: ") + 10;
-
-	//May 12 18:36:33 2018]
 	/* Tokenize and parse the string */
 	struct tm t = {.tm_mon = monthToInt(strtok(s, " "))};
 	t.tm_mday = atoi(strtok(NULL, " "));
@@ -82,10 +73,6 @@ time_t getStartTime(char * line)
 	t.tm_year = atoi(strtok(NULL, "]")) - 1900;
 	return mktime(&t);
 }
-
-FILE * file;
-char * url;
-time_t starttime = 0;
 
 int main(int argc, char ** argv)
 {
@@ -126,11 +113,6 @@ int main(int argc, char ** argv)
 
 	while(fgets(line, MAX_LENGTH, file) != NULL)
 	{
-		//printf("line %d\n", ++counter);
-		/* Skip empty lines */
-		if(!strlen(line))
-			continue;
-
 		/* Find and process starttime string */
 		if(!starttime && strstr(line, "Sys [Diag]: Current time") != NULL)
 		{
@@ -164,15 +146,14 @@ int main(int argc, char ** argv)
 		time.tm_sec += atoi(strtok(line, "."));
 		mktime(&time);
 
-		#ifdef DEBUG
+		/*
 		printf("Time %02d:%02d:%02d - %d\n", time.tm_hour, time.tm_min, time.tm_sec, time.tm_isdst);
 		printf("Actor %.*s\n", actor_length, actor_begin);
 		printf("Damage %s\n", trim(damage));
 		printf("Health %s\n", trim(health));
 		printf("Source %s\n--\n", trim(source_begin));
-		#else
+		*/
 		printf("%d:%02d:%02d %.*s took %s damage at %s health %s\n", time.tm_hour, time.tm_min, time.tm_sec, actor_length, actor_begin, trim(damage), trim(health), trim(source_begin));
-		#endif
 	}
 
 	puts("---  END LOG  ---");
