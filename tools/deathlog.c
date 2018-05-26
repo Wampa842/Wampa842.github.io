@@ -82,7 +82,7 @@ int main(int argc, char ** argv)
 		url = argv[1];
 		if((file = fopen(url, "r")) == NULL)
 		{
-			fprintf(stderr, "(1) Could not open file at %s\n", url);
+			fprintf(stderr, "Could not open file at %s\n", url);
 		}
 	}
 	/* Else, first look for %LOCALAPPDATA%/Warframe/EE.log, or if not found or the envvar is unset, ./EE.log */
@@ -100,7 +100,7 @@ int main(int argc, char ** argv)
 
 		if((file = fopen(url, "r")) == NULL)
 		{
-			fprintf(stderr, "(2) Could not open file at %s\n", url);
+			fprintf(stderr, "Could not open file at %s\n", url);
 		}
 	}
 
