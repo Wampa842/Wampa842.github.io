@@ -1,0 +1,152 @@
+html
+{
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	font-family: "Segoe UI", "Arial", sans;
+}
+
+body
+{
+	background-color: #282823;
+	color: white;
+}
+
+#main-container
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#main-container>div
+{
+	position: relative;
+}
+
+#map-container
+{
+	position: relative;
+	width: 800px;
+	height: 800px;
+	flex: 0 0 800px;
+	margin: auto;
+	border: 1px solid white;
+	background: white;
+}
+
+#map-content
+{
+	position: relative;
+	width: 800px;
+	height: 800px;
+}
+
+#map-image
+{
+	position: absolute;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+	-o-user-drag: none;
+	-webkit-user-drag: none;
+	user-drag: none;
+}
+#map-canvas
+{
+	position: absolute;
+	z-index: 400;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 800px;
+	display: block;
+	pointer-events: none;
+}
+
+#controls-container
+{
+	z-index: 300;
+	position: relative;
+	flex: 0 0 300px;
+
+}
+
+#slider-control
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	color: white;
+	border: 1px solid #505050;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 40px;
+	box-sizing: border-box;
+}
+#slider-control-handle
+{
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	left: 0px;
+	height: auto;
+	text-align: center;
+	background-color: #505050;
+	margin: 0px;
+	border: 0px;
+	text-align: center;
+}
+
+#info-container
+{
+	flex: 1 1 auto;
+}
+
+#display-controls
+{
+	position: relative;
+}
+
+#display-pois
+{
+	margin-left: 10px;
+}
+
+#gps-container
+{
+	position: relative;
+
+	width: 80%;
+}
+
+#gps-connect-url
+{
+	box-sizing: border-box;
+	width: 100%;
+}
+
+#gps-data
+{
+	margin-top: 15px;
+	border: 1px solid;
+	width: 100%;
+}
+
+#gps-connect
+{
+	box-sizing: border-box;
+	width: 100%;
+}
+
+#gps-data th, #gps-data td
+{
+	text-align: center;
+	width: 2%;
+}

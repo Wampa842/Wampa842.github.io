@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alivieska region map</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Map and GPS utility for My Summer Car">
+	<meta name="keywords" content="my,summer,car,map,gps,alivieska,peräjärvi,perajarvi">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.panzoom.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<div id="main-container">
+		<div id="controls-container">
+			<div id="display-controls">
+				<h3>Display</h3>
+				<div id="display-pois">
+					<label><input type="checkbox" class="display-poi-check" id="display-town" value="town">Towns</label><br>
+					<label><input type="checkbox" class="display-poi-check" id="display-shop" value="shop">Shops and services</label><br>
+					<label><input type="checkbox" class="display-poi-check" id="display-work" value="work">Work</label><br>
+				</div>
+			</div>
+			<div id="slider-control">
+				<div id="slider-control-handle">zoom</div>
+			</div>
+			<div id="hit-target">nothing</div>
+			<div id="gps-container">
+				<div id="gps-connect-container">
+					<span id="gps-connect-status">Not connected</span><br>
+					<input type="text" id="gps-connect-url" value="http://localhost:8080/" list="connection-list"><br>
+					<datalist id="connection-list">
+						<option value="http://localhost:8080/"></option>
+						<option value="http://localhost/github/alivieska-gps/data.json"></option>
+					</datalist>
+					<button id="gps-connect">Connect</button>
+				</div>
+				<table id="gps-data">
+					<tr>
+						<td colspan="2" id="gps-data-update">&#x2b24;</td>
+					</tr>
+					<tr>
+						<td>X</td>
+						<td id="gps-data-x">42</td>
+					</tr>
+					<tr>
+						<td>Y</td>
+						<td id="gps-data-z">69</td>
+					</tr>
+					<tr>
+						<td>Height</td>
+						<td id="gps-data-y">420</td>
+					</tr>
+					<tr>
+						<td>Heading</td>
+						<td id="gps-data-heading">30</td>
+					</tr>
+					<tr>
+						<td>Speed</td>
+						<td id="gps-data-speed">60</td>
+					</tr>
+					<tr>
+						<td>Time</td>
+						<td id="gps-data-time">0</td>
+					</tr>
+				</table>
+		<!--table id="gps-data">
+			<tr>
+				<th>X</th>
+				<th>Y</th>
+				<th>Height</th>
+				<th>Heading</th>
+				<th>Speed</th>
+				<th>Time</th>
+			</tr>
+			<tr>
+				<td class="gps-data-field" id="gps-data-x">0</td>
+				<td class="gps-data-field" id="gps-data-z">0</td>
+				<td class="gps-data-field" id="gps-data-y">0</td>
+				<td class="gps-data-field" id="gps-data-heading">0</td>
+				<td class="gps-data-field" id="gps-data-speed">0</td>
+				<td class="gps-data-field" id="gps-data-time">0</td>
+			</tr>
+		</table-->
+			</div>
+		</div>
+		<div class="map-container" id="map-container">
+			<div id="map-content">
+				<img src="res/map.svg" class="map-image" id="map-image">
+			</div>
+				<canvas id="map-canvas" width="800" height="800"></canvas>
+		</div>
+		<div id="info-container">
+		</div>
+	</div>
+</body>
+</html>
