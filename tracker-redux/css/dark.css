@@ -1,0 +1,43 @@
+body.night-mode
+{
+	background-color: #212121;
+	color: #808080;
+}
+
+body.night-mode header, body.night-mode .panel, body.night-mode button, body.night-mode .sidebar
+{
+	background-color: #282828;
+	box-shadow: 0px 1px 5px #101010;
+}
+
+body.night-mode button:hover
+{
+	box-shadow: 0px 2px 8px 0px #101010;
+}
+
+body.night-mode button:active
+{
+	box-shadow: 0px 1px 5px 0px #101010;
+}
+
+body.night-mode input
+{
+	background-color: #282828;
+	box-shadow: 0px 1px 3px #101010 inset;
+}
+
+body.night-mode.has-background
+{
+	background-color: black;
+}
+
+body.night-mode.has-background .panel, body.night-mode.has-background header, body.night-mode.has-background input, body.night-mode.has-background button
+{
+	background-color: #282828;
+	color: #808080;
+}
+
+body.night-mode div.background
+{
+	opacity: 0.5;
+}

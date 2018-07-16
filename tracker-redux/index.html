@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Warframe Tracker 2.0</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="../res/icon.png">
+	<link rel="shortcut icon" type="image/png" href="../res/icon.png">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/dark.css" media="screen">
+
+	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="js/perfect-scrollbar.min.js"></script>
+
+	<script src="js/app_common.js"></script>
+	<script src="js/clock.js"></script>
+</head>
+<body>
+	<div class="background">
+	</div>
+	<div class="background-author-container">
+		<span class="background-author"></span>
+	</div>
+	<header>
+		<div class="header-padding header-padding-left">
+			<button class="header-button" id="toggle-clocks">Clocks</button>
+		</div>
+		<div class="header-middle">
+		<h1 class="title">Warframe Tracker 2.0</h1>
+			<nav>
+				<a href="https://google.com">Google</a>
+				<a href="https://forums.warframe.com">Warframe Forums</a>
+				<a href="https://reddit.com/r/warframe">r/Warframe</a>
+			</nav>
+		</div>
+		<div class="header-padding header-padding-left">
+			<button class="header-button" id="toggle-settings-panel">Settings</button>
+		</div>
+	</header>
+	<main>
+		<article class="panel">
+			<h2>This is an article.</h2>
+			<p id="test1">This is a paragraph.</p>
+			<p id="test2">This is another paragraph.</p>
+		</article>
+		<article class="panel">
+			<h2>This is another article.</h2>
+			<input type="text" value="This is a text input.">
+			<button>This is a button.</button>
+			<button disabled>This button is disabled.</button>
+		</article>
+	</main>
+	<div id="sidebar-remover" style="display: none;"></div>
+	<div class="sidebar" id="clock-sidebar">
+	<!--div class="sidebar sidebar-hidden" id="clock-sidebar"-->
+		<div class="clock-info-container panel">
+			<div class="clock-text-container panel">
+				a
+			</div>
+			<div class="clock-analog-container" id="cetus-clock-container">
+				<img class="clock-graphic-element clock-face" src="res/cetus_clock_face.svg">
+				<img class="clock-graphic-element hour-hand" src="res/h.svg">
+				<img class="clock-graphic-element minute-hand" src="res/m.svg">
+				<img class="clock-graphic-element second-hand" src="res/s.svg">
+				<img class="clock-graphic-element sun-dial" src="res/sun.svg">
+			</div>
+		</div>
+		<div class="clock-info-container panel">
+			<h3 class="clock-title">Orb Vallis weather</h3>
+			<div class="clock-analog-container" id="fortuna-clock-container">
+				<img class="clock-graphic-element" src="res/cetus_clock.svg">
+			</div>
+		</div>
+		<div class="clock-info-container panel">
+			<h3 class="clock-title">Orb Vallis weather</h3>
+			<div class="clock-analog-container" id="fortuna-clock-container">
+				<img class="clock-graphic-element" src="res/cetus_clock.svg">
+			</div>
+		</div>
+	</div>
+	<div class="sidebar sidebar-hidden" id="settings-sidebar">
+		<div class="settings-container">
+			<p><button class="toggle-settings" id="toggle-night-mode">Toggle night mode</button></p>
+			<p><button class="toggle-settings" id="toggle-background">Toggle background</button></p>
+			<p>
+				<input type="number" class="settings-inline-input" id="blur-value" min="0" value="10">
+				<button class="small-settings-button" id="apply-blur">&#x2713;</button>
+				<button class="small-settings-button" id="reset-blur">&#x2715;</button>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
