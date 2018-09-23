@@ -1,0 +1,14 @@
+[
+    {
+        "name":"Radex",
+        "steamID":"76561198063306360",
+        "restricted":true,
+        "blocked":true
+    },
+    {
+        "name":"RestrictedUserExample",
+        "steamID":"0123456789SteamIDExample",
+        "restricted":true,
+        "blocked":false
+    }
+]
