@@ -428,6 +428,25 @@ var defaultComponents =
 		return item;
 	}
 
+	function foundryListItemFromRemote(key)
+	{
+		$.ajax(
+		{
+			dataType: "json",
+			url: "data/components.json",
+			mimeType: "application/json",
+			success: function(data)
+			{
+				if(!(key in data))
+				{
+					alert("Invalid item\nThe item you've requested isn't in the database. Either it doesn't exist or I haven't gotten around to adding it.");
+					return;
+				}
+				
+			}
+		});
+	}
+
 	function foundryListAddItem(event)
 	{
 		var item = foundryListItemFromForm();
