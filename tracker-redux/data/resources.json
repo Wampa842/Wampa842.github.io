@@ -1,0 +1,227 @@
+[
+    {
+        "name": "Mercury",
+        "resources":
+        [
+            "Morphics",
+            "Ferrite",
+            "Polymer bundle",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name": "Venus",
+        "resources":
+        [
+            "Alloy plate",
+            "Polymer bundle",
+            "Circuits",
+            "Fieldron sample"
+        ]
+    },
+    {
+        "name": "Earth",
+        "resources":
+        [
+            "Ferrite",
+            "Rubedo",
+            "Neurodes",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name": "Mars",
+        "resources":
+        [
+            "Morphics",
+            "Salvage",
+            "Gallium",
+            "Fieldron sample"
+        ]
+    },
+    {
+        "name": "Phobos",
+        "resources":
+        [
+            "Rubedo",
+            "Morphics",
+            "Plastids",
+            "Alloy plate"
+        ]
+    },
+    {
+        "name": "Ceres",
+        "resources":
+        [
+            "Alloy plate",
+            "Circuits",
+            "Orokin cell",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name": "Jupiter",
+        "resources":
+        [
+            "Salvage",
+            "Fieldron sample",
+            "Neural sensors",
+            "Alloy plate"
+        ]
+    },
+    {
+        "name": "Europa",
+        "resources":
+        [
+            "Morphics",
+            "Rubedo",
+            "Fieldron sample",
+            "Control module"
+        ]
+    },
+    {
+        "name":"Saturn",
+        "resources": 
+        [
+            "Nano spores",
+            "Plastids",
+            "Orokin cell",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name":"Uranus",
+        "resources": 
+        [
+            "Polymer bundle",
+            "Plastids",
+            "Gallium",
+            "Tellurium",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name":"Neptune",
+        "resources": 
+        [
+            "Nano spores",
+            "Ferrite",
+            "Control module",
+            "Fieldron sample"
+        ]
+    },
+    {
+        "name":"Pluto",
+        "resources": 
+        [
+            "Alloy plate",
+            "Rubedo",
+            "Plastids",
+            "Morphics",
+            "Fieldron sample"
+        ]
+    },
+    {
+        "name":"Sedna",
+        "resources": 
+        [
+            "Rubedo",
+            "Alloy plate",
+            "Salvage",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name":"Eris",
+        "resources": 
+        [
+            "Nano spores",
+            "Plastids",
+            "Neurodes",
+            "Mutagen sample"
+        ]
+    },
+    {
+        "name":"Void",
+        "resources": 
+        [
+            "Ferrite",
+            "Rubedo",
+            "Argon crystal",
+            "Control module"
+        ]
+    },
+    {
+        "name":"Derelict",
+        "resources": 
+        [
+            "Nano spores",
+            "Mutagen sample",
+            "Orokin cell",
+            "Neurodes"
+        ]
+    },
+    {
+        "name":"Lua",
+        "resources": 
+        [
+            "Ferrite",
+            "Rubedo",
+            "Neurodes",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name":"Kuva Fortress",
+        "resources":
+        [
+            "Salvage",
+            "Circuits",
+            "Neural sensors",
+            "Detonite ampule"
+        ]
+    },
+    {
+        "name":"Plains of Eidolon",
+        "resources":
+        [
+            "Grokdrul",
+            "Iradite",
+            "Maprico",
+            "Nistlepod",
+            "Condroc wing",
+            "Kuaka spinal claw",
+            "Cetus wisp",
+            "Breath of the Eidolon",
+            "Eidolon shard",
+            "Brilliant Eidolon shard",
+            "Radiant Eidolon shard",
+            "Coprun",
+            "Ferros",
+            "Auron",
+            "Pyrol",
+            "Azurite",
+            "Devar",
+            "Veridos",
+            "Crimzian",
+            "Nyth",
+            "Sentirum",
+            "Fish meat",
+            "Fish oil",
+            "Fish scales",
+            "Mawfish bones",
+            "Charc electroplax",
+            "Khut-khut venom sac",
+            "Yogwun stomach",
+            "Mortus horn",
+            "Goopolla spleen",
+            "Tralok eyes",
+            "Sharrac teeth",
+            "Karkina antenna",
+            "Murkray liver",
+            "Norg brain",
+            "Cuthol tendrils",
+            "Seram beetle shell"
+        ]
+    }
+]

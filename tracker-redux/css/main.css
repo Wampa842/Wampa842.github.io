@@ -1,0 +1,719 @@
+/* Z-index
+	1     background
+	2     author
+	50    panel
+	51    author hover
+	90    sidebar remover
+	100   header
+	200   sidebar
+*/
+
+/* #region Element styles */
+@font-face
+{
+	font-family: 'roboto';
+	src: url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff') format('woff');
+	font-weight: 300;
+}
+
+body
+{
+	font-family: 'roboto', sans-serif;
+	background-color: #d1d1d1;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	color: #808080;
+	margin: 0px;
+	padding: 0px;
+}
+
+input[type=text], input[type=number]
+{
+	font: inherit;
+	color: inherit;
+	border: none;
+	border-radius: 3px;
+	padding: 2px;
+	margin: 2px;
+	box-shadow: 0px 1px 3px 0px inset;
+}
+
+input:invalid
+{
+	background-color: #faa;
+	box-shadow: 0px 0px 5px #a77 inset;
+}
+
+button
+{
+	transition-duration: 0.1s;
+	font: inherit;
+	color: inherit;
+	border: none;
+	border-radius: 3px;
+	padding: 2px;
+	margin: 2px;
+	box-shadow: 0px 1px 6px 0px;
+}
+
+button[disabled]
+{
+	opacity: 0.5;
+}
+
+button:not([disabled]):hover
+{
+	box-shadow: 0px 2px 8px 0px;
+}
+
+button:not([disabled]):active
+{
+	box-shadow: 0px 1px 4px 0px;
+}
+
+button.full-width-button
+{
+	width: 100%;
+}
+
+a
+{
+	font: inherit;
+	color: inherit;
+}
+
+.fast-transform
+{
+	transition: transform 0.2s;
+}
+
+/* #endregion */
+
+/* #region Page header */
+header, .panel
+{
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+	z-index: 50;
+	box-shadow: 0px 1px 7px;
+}
+
+.panel-inset
+{
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+	z-index: 50;
+	box-shadow: 0px 1px 7px inset;
+}
+
+header
+{
+	position: sticky;
+	width: 100%;
+	top: 0px;
+	display: flex;
+	flex-direction: row;
+	padding: 0px 0px 5px 0px;
+	margin: 0px;
+	z-index: 100;
+}
+
+.header-middle
+{
+	flex: 1 0 auto;
+}
+
+.header-padding
+{
+	flex: 1 1 10%;
+	padding: 15px 10px;
+	display: flex;
+}
+
+.header-padding-left
+{
+	flex-direction: row;
+}
+
+.header-padding-right
+{
+	flex-direction: row-reverse;
+}
+
+.header-middle h1
+{
+	position: relative;
+	display: block;
+	text-align: center;
+	margin: 0px auto 10px auto;
+	font-size: 2.5em;
+	letter-spacing: 5px;
+	top: 10px;
+}
+
+nav
+{
+	display: flex;
+}
+
+nav a, .nav-padding
+{
+	border: 1px solid transparent;
+	border-radius: 3px;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	flex: 1 1 20%;
+	padding: auto 20px;
+}
+
+nav a:hover
+{
+	border-color: inherit;
+}
+
+/* #endregion */
+
+/* #region Articles and footer */
+
+article
+{
+	position: relative;
+	flex: 0 0 auto;
+	padding: 10px 30px 10px 30px;
+	margin: 30px 100px 0px 100px;
+}
+
+#cookie-notice
+{
+	position: fixed;
+	bottom: 0px;
+}
+
+footer
+{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	text-align: center;
+	color: #404040;
+}
+
+/* #endregion */
+
+/* #region Background */
+div.background
+{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	height: 100%;
+	z-index: 1;
+}
+
+body.has-background
+{
+	background-color: black;
+}
+
+body.has-background:not(.night-mode) .panel, body.has-background:not(.night-mode) .panel-inset, body.has-background:not(.night-mode) header, body.has-background:not(.night-mode) button, body.has-background:not(.night-mode) input
+{
+	opacity: 0.7;
+	color: #404040;
+}
+
+body.has-background button[disabled]
+{
+	opacity: 0.4;
+}
+
+div.background-author-container
+{
+	transition: font-size 0.3s;
+	position: fixed;
+	z-index: 2;
+	bottom: 5px;
+	right: 10px;
+	font-size: 0.7em;
+	opacity: 0.5;
+	text-shadow: 0px 1px 2px black;
+}
+
+div.background-author-container:hover
+{
+	font-size: 1em;
+	opacity: 1;
+	z-index: 51;
+}
+/* #endregion */
+
+/* #region Sidebars */
+
+#sidebar-remover
+{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 90;
+	background-color: #0004;
+}
+
+.sidebar
+{
+	transition: top 0.2s;
+	position: fixed;
+	top: 0px;
+	box-sizing: border-box;
+	max-height: 100%;
+	overflow-y: scroll;
+	overflow: hidden;
+	background-color: #f9f9f9;
+	box-shadow: 0px 1px 10px;
+	z-index: 200;
+	opacity: 1.0;
+}
+
+.sidebar-hidden
+{
+	top: -110%;
+}
+
+.header-button
+{
+	display: block;
+	width: 100px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+#toggle-settings-panel
+{
+	float: right;
+}
+
+/* #endregion */
+
+/* #region Clocks */
+
+#clock-sidebar
+{
+	position: fixed;
+	left: 125px;
+	width: 400px;
+}
+
+.clock-info-container
+{
+	display: flex;
+	height: 160px;
+	width: auto;
+	padding: 5px;
+	margin: 5px;
+}
+
+.clock-analog-container
+{
+	box-sizing: border-box;
+	display: block;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	float: right;
+	align-self: initial;
+	overflow: hidden;
+}
+
+.clock-graphic-element
+{
+	right: 0px;
+	position: absolute;
+	height: 100%;
+}
+
+.clock-text-container
+{
+	box-sizing: border-box;
+	flex: 1 1 100%;
+}
+
+.clock-title
+{
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-top: 8px;
+	margin-bottom: 10px;
+}
+
+.clock-display
+{
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.clock-display-large
+{
+	margin-top: 12px;
+	font-size: 1.4em;
+}
+
+.clock-display-medium
+{
+	margin-top: 8px;
+}
+
+.clock-display-label
+{
+	font-size: 0.7em;
+}
+
+/* #endregion */
+
+/* #region Shortcuts */
+
+#shortcuts-sidebar
+{
+	left: 225px;
+	width: 400px;
+	padding: 20px;
+}
+
+#shortcut-add-container
+{
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+#shortcut-add-container input
+{
+	width: 100%;
+}
+
+#shortcut-add-submit, #shortcut-add-cancel
+{
+	flex: 1 1 auto;
+}
+
+.shortcut-list-item
+{
+	display: flex;
+	align-items: center;
+	margin-left: 0px;
+}
+
+.shortcut-list-item span
+{
+	flex: 1 1 auto;
+}
+
+.list-button
+{
+	transition-duration: 0s;
+	visibility: hidden;
+	flex: 0 0 auto;
+}
+
+.shortcut-list-item:hover .list-button
+{
+	visibility: visible;
+}
+
+/* #endregion */
+
+/* #region Settings */
+
+#settings-sidebar
+{
+	right: 125px;
+	width: 300px;
+	padding: 10px;
+}
+
+.toggle-settings
+{
+	margin: 0px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.settings-container p
+{
+	display: flex;
+	align-content: stretch;
+}
+
+.settings-inline-input
+{
+	flex: 1 1 auto;
+}
+
+.small-settings-button
+{
+	flex: 0 0 auto;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+/* #endregion */
+
+/* #region Data management */
+
+#data-management-sidebar
+{
+	right: 225px;
+	width: 300px;
+	padding: 10px;
+	text-align: center;
+}
+
+#data-management-sidebar button
+{
+	margin-top: 10px;
+}
+
+/* #endregion */
+
+/* #region Wikia shortcuts */
+
+#wikia-list-container
+{
+	position: relative;
+	margin-top: 20px;
+	padding: 5px;
+	padding-left: 40px;
+	width: 400px;
+}
+
+#wikia-list
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+#wikia-add-container
+{
+	margin-top: 10px;
+	width: 400px;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+#wikia-add-buttons
+{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+}
+
+#wikia-add-buttons button
+{
+	flex: 1 1 auto;
+}
+
+.wikia-list-item
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.wikia-list-item span
+{
+	flex: 1 1 auto;
+}
+
+.wikia-list-item:hover .list-button
+{
+	visibility: visible;
+}
+
+/* #endregion */
+
+/* #region Foundry list */
+
+#foundry-table
+{
+	border-collapse: collapse;
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.foundry-header-component
+{
+	width: 14%;
+}
+
+.foundry-header-buttons
+{
+	width: 40px;
+	text-align: left;
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+.foundry-item td
+{
+	border-top: 1px solid;
+	height: 60px;
+	vertical-align: middle;
+}
+/*
+.foundry-item:nth-child(even) td, .foundry-item:nth-child(even) + tr td
+{
+	background-color: #0001;
+}*/
+
+.foundry-item-buttons-container
+{
+	font-size: 0.8em;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+.foundry-item-buttons-column
+{
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.foundry-item-buttons-updown
+{
+	flex: 0 0 1.5em;
+	width: 1.5em;
+}
+
+.foundry-item-buttons-container button
+{
+	flex: 1 1 auto;
+}
+
+.foundry-item-name
+{
+	padding-left: 15px;
+	letter-spacing: 1px;
+}
+
+.foundry-item-component-container
+{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	text-align: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.foundry-item-component-container button
+{
+	transition-duration: 0s;
+	visibility: hidden;
+	flex: 0 0 1em;
+}
+
+.foundry-item-component-container:hover button
+{
+	visibility: visible;
+}
+
+.foundry-item-component-name-container
+{
+	flex: 1 1 auto;
+}
+
+.foundry-item-component-name
+{
+	height: auto;
+	overflow: hidden;
+}
+
+#foundry-edit
+{
+	height: 80px;
+	border-top: 1px solid;
+}
+
+.foundry-edit-buttons
+{
+	height: 100%;
+}
+
+.foundry-edit-buttons-container
+{
+	flex-direction: column;
+}
+
+.foundry-edit-input-container
+{
+	flex: 1 1 auto;
+}
+
+.foundry-edit-input-container input
+{
+	box-sizing: border-box;
+	width: 90%;
+}
+
+.foundry-edit-vertical-container
+{
+	flex-direction: column;
+}
+
+.foundry-edit-horizontal-container
+{
+	display: flex;
+	flex-direction: row;
+}
+
+/* #endregion */
+
+/* #region Foundry details */
+
+.foundry-details-component
+{
+	text-align: center;
+	vertical-align: top;
+}
+
+/* #endregion */
+
+
+/*
+#foundry-details
+{
+	padding: 10px;
+}
+
+#foundry-details-table
+{
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#foundry-details-table thead
+{
+	background-color: #0002;
+}
+
+#foundry-details-close
+{
+	margin-right: 2%;
+}
+*/

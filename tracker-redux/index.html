@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Warframe Tracker 3.0</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="../res/icon.png">
+	<link rel="shortcut icon" type="image/png" href="../res/icon.png">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/dark.css" media="screen">
+
+	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="js/perfect-scrollbar.min.js"></script>
+
+	<script src="js/app_common.js"></script>
+	<script src="js/clock.js"></script>
+</head>
+<body>
+	<!-- #region Background -->
+	<div class="background"></div>
+	<div class="background-author-container">
+		<span class="background-author"></span>
+	</div>
+	<!-- endregion -->
+	<!-- #region Header -->
+	<header>
+		<div class="header-padding header-padding-left">
+			<button class="header-button" id="toggle-clocks">Clocks</button>
+			<button class="header-button" id="toggle-shortcuts">Shortcuts</button>
+		</div>
+		<div class="header-middle">
+		<h1 class="title">Warframe Tracker 3.0</h1>
+			<nav>
+				<a href="https://google.com">Google</a>
+				<a href="https://forums.warframe.com">Warframe Forums</a>
+				<a href="https://reddit.com/r/warframe">r/Warframe</a>
+			</nav>
+		</div>
+		<div class="header-padding header-padding-right">
+			<button class="header-button" id="toggle-settings-panel">Settings</button>
+			<button class="header-button" id="toggle-data-management-panel">Data management</button>
+		</div>
+	</header>
+	<!-- endregion -->
+	<!-- #region Main content -->
+	<main>
+		<article class="panel" id="info-container">
+			<h2>Wikia shortcuts</h2>
+			<input type="text" id="wikia-id">
+			<button id="wikia-go">Go</button>
+			<button id="wikia-add-show">Add shortcut...</button>
+			<div id="wikia-add-container" style="display: none;" class="panel">
+				ID
+				<input type="text" id="wikia-add-id" required>
+				Name
+				<input type="text" id="wikia-add-name" required>
+				<div id="wikia-add-buttons">
+					<button id="wikia-add-submit">OK</button>
+					<button id="wikia-add-cancel">Cancel</button>
+				</div>
+			</div>
+			<div id="wikia-list-container" class="panel">
+				<ul id="wikia-list">
+				</ul>
+			</div>
+		</article>
+		<article class="panel" id="foundry-panel">
+			<h2>Foundry</h2>
+			<table class="panel" id="foundry-table">
+				<thead>
+					<tr>
+						<th class="foundry-header-buttons">
+							<button class="full-width-button" id="foundry-edit-show">new</button>
+						</th>
+						<th class="foundry-header-name">Item</th>
+						<th class="foundry-header-component foundry-header-blueprint">Blueprint</th>
+						<th class="foundry-header-component foundry-header-comp-a">Component A</th>
+						<th class="foundry-header-component foundry-header-comp-b">Component B</th>
+						<th class="foundry-header-component foundry-header-comp-c">Component C</th>
+						<th class="foundry-header-component foundry-header-comp-d">Component D</th>
+					</tr>
+					<tr class="" id="foundry-edit" hidden>
+						<datalist id="item-names"></datalist>
+						<datalist id="part-names">
+							<option>Neuroptics</option>
+							<option>Systems</option>
+							<option>Chassis</option>
+							<option>Barrel</option>
+							<option>Receiver</option>
+							<option>Stock</option>
+							<option>Link</option>
+							<option>Limb</option>
+							<option>String</option>
+							<option>Grip</option>
+							<option>Blade</option>
+							<option>Guard</option>
+							<option>Boot</option>
+							<option>Handle</option>
+						</datalist>
+						<td class="foundry-edit-buttons">
+							<div class="foundry-edit-buttons-container foundry-item-buttons-container" id="foundry-edit-new-buttons">
+								<button id="foundry-edit-submit">Add</button>
+								<button class="foundry-edit-cancel">Cancel</button>
+							</div>
+							<div class="foundry-edit-buttons-container foundry-item-buttons-container" id="foundry-edit-modify-buttons" style="display: none;">
+								<button id="foundry-edit-apply">Apply</button>
+								<button class="foundry-edit-cancel">Cancel</button>
+								<button id="foundry-edit-delete">Delete</button>
+							</div>
+						</td>
+						<td class="foundry-item-name foundry-edit-input-container">
+							<input type="text" id="foundry-edit-name" placeholder="Item name" list="item-names" required>
+						</td>
+						<td class="foundry-item-blueprint foundry-item-component">
+							<div class="foundry-item-component-container foundry-edit-blueprint-container">
+								<div class="foundry-edit-input-container">
+									<input type="number" id="foundry-edit-blueprint-owned" min="0" placeholder="owned">
+								</div>
+							</div>
+						</td>
+						<td class="foundry-item-component-1 foundry-item-component">
+							<div class="foundry-item-component-container foundry-edit-vertical-container">
+								<div class="foundry-edit-input-container">
+									<input type="text" id="foundry-edit-component-1-name" placeholder="component name" list="part-names">
+								</div>
+								<div class="foundry-edit-horizontal-container">
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-1-owned" min="0" placeholder="owned">
+									</div>
+									<div>&nbsp;/&nbsp;</div>
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-1-needed" min="1" placeholder="required">
+									</div>
+								</div>
+							</div>
+						</td>
+						<td class="foundry-item-component-2 foundry-item-component">
+							<div class="foundry-item-component-container foundry-edit-vertical-container">
+								<div class="foundry-edit-input-container">
+									<input type="text" id="foundry-edit-component-2-name" placeholder="component name" list="part-names">
+								</div>
+								<div class="foundry-edit-horizontal-container">
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-2-owned" min="0" placeholder="owned">
+									</div>
+									<div>&nbsp;/&nbsp;</div>
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-2-needed" min="1" placeholder="required">
+									</div>
+								</div>
+							</div>
+						</td>
+						<td class="foundry-item-component-3 foundry-item-component">
+							<div class="foundry-item-component-container foundry-edit-vertical-container">
+								<div class="foundry-edit-input-container">
+									<input type="text" id="foundry-edit-component-3-name" placeholder="component name" list="part-names">
+								</div>
+								<div class="foundry-edit-horizontal-container">
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-3-owned" min="0" placeholder="owned">
+									</div>
+									<div>&nbsp;/&nbsp;</div>
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-3-needed" min="1" placeholder="required">
+									</div>
+								</div>
+							</div>
+						</td>
+						<td class="foundry-item-component-4 foundry-item-component">
+							<div class="foundry-item-component-container foundry-edit-vertical-container">
+								<div class="foundry-edit-input-container">
+									<input type="text" id="foundry-edit-component-4-name" placeholder="component name" list="part-names">
+								</div>
+								<div class="foundry-edit-horizontal-container">
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-4-owned" min="0" placeholder="owned">
+									</div>
+									<div>&nbsp;/&nbsp;</div>
+									<div class="foundry-edit-input-container">
+										<input type="number" id="foundry-edit-component-4-needed" min="1" placeholder="required">
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<!--div class="panel" id="foundry-details" style="display: none;">
+				<h3><button id="foundry-details-close">Close</button>Vectis Prime</h3>
+				<table id="foundry-details-table">
+					<thead>
+						<tr>
+							<th id="foundry-details-header-blueprint">Blueprint</th>
+							<th id="foundry-details-header-comp-1">Barrel</th>
+							<th id="foundry-details-header-comp-2">Receiver</th>
+							<th id="foundry-details-header-comp-3">Stock</th>
+							<th id="foundry-details-header-comp-4">Orokin cell</th>
+						</tr>
+						<tr>
+							<th id="foundry-details-header-blueprint-count">0 / 1</th>
+							<th id="foundry-details-header-comp-count-1">0 / 1</th>
+							<th id="foundry-details-header-comp-count-2">3 / 1</th>
+							<th id="foundry-details-header-comp-count-3">1 / 1</th>
+							<th id="foundry-details-header-comp-count-4">123 / 10</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr></tr>
+					</tbody>
+				</table>
+			</div-->
+		</article>
+		<article class="panel" id="cookie-notice">
+			<p>This website doesn't use cookies, but it uses the <code>localStorage</code> object that stores data on the client device. Nothing personally identifiable is stored, and nothing is sent through the network to other hosts. <a href="localstorage.html">This article</a> goes into more detail about what kinds of data are stored in <code>localStorage</code>.</p>
+			<p>By using this website, you agree to its use of <code>localStorage</code>.</p>
+			<button class="full-width-button" id="cookie-dismiss">I agree.</button>
+		</article>
+	</main>
+	<!-- endregion -->
+	<!-- #region Sidebars -->
+	<div id="sidebar-remover" style="display: none;">
+		<footer>
+			This website is a personal project. I am not affiliated with Warframe or Digital Extremes.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="https://github.com/gabor-motko/gabor-motko.github.io">GitHub</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;GNU GPL-3.0-or-later
+		</footer>
+	</div>
+	<div class="sidebar sidebar-hidden" id="clock-sidebar">
+		<div class="clock-info-container panel">
+			<div class="clock-text-container">
+				<div class="clock-title">Cetus time</div>
+				<div class="clock-display clock-display-large" id="cetus-time-remaining">0:00:00</div>
+				<div class="clock-display clock-display-label" id="cetus-next-period">until sunrise</div>
+				<div class="clock-display clock-display-medium" id="cetus-time-scaled">23:59:59</div>
+				<div class="clock-display clock-display-label">local time</div>
+			</div>
+			<div class="clock-analog-container" id="cetus-clock-container">
+				<img class="clock-graphic-element clock-face" src="res/clocks/cetus_face_simple.svg">
+				<img class="clock-graphic-element clock-graphics-simple sun-dial" src="res/clocks/cetus_sun_simple.svg">
+			</div>
+		</div>
+		<!--div class="clock-info-container panel">
+			<div class="clock-text-container">
+				<div class="clock-title">Weather in Fortuna</div>
+				<div class="clock-display clock-display-large" id="fortuna-time-remaining">0:00:00</div>
+				<div class="clock-display clock-display-label" id="fortuna-next-period">until weather changes</div>
+				<div class="clock-display clock-display-medium" id="fortuna-time-scaled">Cloudy with a chance of spiders</div>
+				<div class="clock-display clock-display-label">current weather in Fortuna</div>
+			</div>
+			<div class="clock-analog-container" id="fortuna-clock-container">
+				<img class="clock-graphic-element clock-face" src="res/clock_face_generic.svg">
+				<img class="clock-graphic-element clock-graphics-simple sun-dial" src="res/clocks/sun_cetus.svg">
+			</div>
+		</div-->
+	</div>
+	<div class="sidebar sidebar-hidden" id="shortcuts-sidebar">
+		<h3>Shortcuts</h3>
+		<button class="full-width-button" id="shortcut-add-show">Add shortcut...</button>
+		<div class="panel" id="shortcut-add-container" style="display: none;">
+			<span>Name</span><input type="text" id="shortcut-add-name" required>
+			<span>URL</span><input type="text" id="shortcut-add-url" required>
+			<span style="display: flex; flex-direction: row;">
+				<button id="shortcut-add-submit">OK</button>
+				<button id="shortcut-add-cancel">Cancel</button>
+			</span>
+		</div>
+		<ul id="shortcut-list">
+		</ul>
+	</div>
+	<div class="sidebar sidebar-hidden" id="settings-sidebar">
+		<div class="settings-container">
+			<p><button class="toggle-settings" id="toggle-night-mode">Toggle night mode</button></p>
+			<p><button class="toggle-settings" id="toggle-background">Toggle background</button></p>
+			<p>
+				<input type="number" class="settings-inline-input" id="blur-value" min="0" value="10">
+				<button class="small-settings-button" id="apply-blur">&#x2713;</button>
+				<button class="small-settings-button" id="reset-blur">&#x2715;</button>
+			</p>
+			<p><label><input type="checkbox" id="toggle-simple-clocks"> Simple clocks</label></p>
+		</div>
+	</div>
+	<div class="sidebar sidebar-hidden" id="data-management-sidebar">
+		<h3>Data management</h3>
+		<button class="full-width-button" id="data-management-export">Export data</button>
+		<a id="data-management-download" href="#" hidden>Click here to save the file</a>
+		<button class="full-width-button" id="data-management-import">Import data</button>
+		<button class="full-width-button" id="data-management-delete">Delete data</button>
+	</div>
+	<!-- endregion -->
+</body>
+</html>
