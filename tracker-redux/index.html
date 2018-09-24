@@ -45,26 +45,40 @@
 	<!-- endregion -->
 	<!-- #region Main content -->
 	<main>
-		<article class="panel" id="info-container">
-			<h2>Wikia shortcuts</h2>
-			<input type="text" id="wikia-id">
-			<button id="wikia-go">Go</button>
-			<button id="wikia-add-show">Add shortcut...</button>
-			<div id="wikia-add-container" style="display: none;" class="panel">
-				ID
-				<input type="text" id="wikia-add-id" required>
-				Name
-				<input type="text" id="wikia-add-name" required>
-				<div id="wikia-add-buttons">
-					<button id="wikia-add-submit">OK</button>
-					<button id="wikia-add-cancel">Cancel</button>
+		<div class="horizontal-container">
+			<article class="panel" id="info-panel">
+				<h2>Wikia shortcuts</h2>
+				<input type="text" id="wikia-id">
+				<button id="wikia-go">Go</button>
+				<button id="wikia-add-show">Add shortcut...</button>
+				<div id="wikia-add-container" style="display: none;" class="panel">
+					ID
+					<input type="text" id="wikia-add-id" required>
+					Name
+					<input type="text" id="wikia-add-name" required>
+					<div id="wikia-add-buttons">
+						<button id="wikia-add-submit">OK</button>
+						<button id="wikia-add-cancel">Cancel</button>
+					</div>
 				</div>
-			</div>
-			<div id="wikia-list-container" class="panel">
-				<ul id="wikia-list">
-				</ul>
-			</div>
-		</article>
+				<div id="wikia-list-container" class="panel">
+					<ul id="wikia-list">
+					</ul>
+				</div>
+			</article>
+			<article class="panel" id="relic-data-panel">
+				<h2>Relic data</h2>
+				Relic:
+				<select id="relic-data-era">
+					<option>(any)</option>
+					<option>Lith</option>
+					<option>Meso</option>
+					<option>Neo</option>
+					<option>Axi</option>
+				</select>
+				<select id="relic-data-code"></select>
+			</article>
+		</div>
 		<article class="panel" id="foundry-panel">
 			<h2>Foundry</h2>
 			<table class="panel" id="foundry-table">

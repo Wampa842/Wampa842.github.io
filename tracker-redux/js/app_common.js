@@ -594,10 +594,11 @@ function rarity_str(num)
 	return ["common", "uncommon", "rare", "very rare", "legendary"][num];
 }
 
-function relic_str(relic, withRarity)
+function relic_str(relic, noRarity)
 {
+	if(noRarity)
+		return relic.era.replace(/^[a-z]/, ch => ch.toUpperCase()) + " " + relic.code.toUpperCase() + " relic";
 	return relic.era.replace(/^[a-z]/, ch => ch.toUpperCase()) + " " + relic.code.toUpperCase() + " relic (" + rarity_str(relic.rarity) + ")";
-	//return era.replace(/^[a-z]/, ch => ch.toUpperCase()) + " " + code.toUpperCase() + " relic";
 }
 
 function is_relic_drop(comp)
@@ -685,6 +686,22 @@ function foundry_details(item, num)
 
 //#endregion
 
+//#region Relic info
+
+function relic_put(era)
+{
+	let any = era == "any";
+	let coll = any ? relic_data.relics : relic_data.relics.filter(e => e.era == era);
+	let content = [];
+	for(let r of coll)
+	{
+		content.push('<option>' + (any ? relic_str(r, true) : r.code.toUpperCase()) + '</option>');
+	}
+	$("#relic-data-code").html(content.join(""));
+}
+
+//#endregion
+
 //#region Main
 
 $(document).ready(function(event)
@@ -711,6 +728,8 @@ $(document).ready(function(event)
 			success: function(data)
 			{
 				relic_data = data;
+				$("#relic-data-era").val("(any)");
+				relic_put("any");
 				console.log("relic data loaded");
 			},
 			error: function()
@@ -785,7 +804,6 @@ $(document).ready(function(event)
 			}
 		}
 	);
-
 
 	// Initialize elements
 	var clock_scroll = new PerfectScrollbar("#clock-sidebar", {maxScrollbarLength: 200});	
@@ -1124,6 +1142,11 @@ $(document).ready(function(event)
 	$("#foundry-details-close").click(function(event)
 	{
 		$("#foundry-details").hide();
+	});
+
+	$("#relic-data-era").change(function(event)
+	{
+		relic_put(event.target.value.toLowerCase());
 	});
 });
 //#endregion

@@ -176,12 +176,25 @@ nav a:hover
 
 /* #region Articles and footer */
 
+main
+{
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+.horizontal-container
+{
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
 article
 {
+	flex: 1 1 50%;
 	position: relative;
-	flex: 0 0 auto;
 	padding: 10px 30px 10px 30px;
-	margin: 30px 100px 0px 100px;
+	margin: 30px;
 }
 
 #cookie-notice
@@ -709,6 +722,14 @@ div.background-author-container:hover
 
 /* #endregion */
 
+/* #region Relic data */
+
+#relic-data-panel select
+{
+	min-width: 80px;
+}
+
+/* #endregion */
 
 /*
 #foundry-details
