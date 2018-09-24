@@ -187,7 +187,17 @@ article
 #cookie-notice
 {
 	position: fixed;
-	bottom: 0px;
+	width: 600px;
+	left: 10px;
+	bottom: 10px;
+	padding: 10px;
+	box-shadow: 3px 3px 15px black;
+	color: black;
+}
+
+#cookie-consent
+{
+	color: black;
 }
 
 footer
@@ -645,6 +655,7 @@ div.background-author-container:hover
 
 #foundry-edit
 {
+	background: #0001;
 	height: 80px;
 	border-top: 1px solid;
 }
@@ -689,6 +700,11 @@ div.background-author-container:hover
 {
 	text-align: center;
 	vertical-align: top;
+}
+
+.foundry-details-component ul
+{
+	text-align: left;
 }
 
 /* #endregion */

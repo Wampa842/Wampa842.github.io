@@ -2,11 +2,12 @@
 //#region Globals
 var relic_data = [];
 var item_data = [];
+var resource_data = [];
 
-var background_enabled = true;
+var background_enabled = false;
 var background_blur = 0;
 var night_mode = false;
-var cookies_accepted = false;
+var cookies_accepted;
 var shortcuts = [];
 var wikia = [];
 var foundry = [];
@@ -36,15 +37,16 @@ function array_move(coll, index, dir)
 
 //#region Settings
 
-function load_settings()
+function settings_load()
 {
 	var settings = JSON.parse(localStorage.getItem("wftracker-settings"));
 	for(var prop in settings)
 	{
-		if(prop == "night")
+		if(prop == "cookies-accepted")
 		{
-			night_mode = settings[prop];
-			toggle_nightmode(night_mode);
+			cookies_accepted = settings[prop];
+			if(cookies_accepted)
+				$("#cookie-notice").remove();
 		}
 		else if(prop == "background")
 		{
@@ -55,13 +57,12 @@ function load_settings()
 			background_blur = settings[prop];
 			$("#blur-value").val(background_blur);
 		}
-		else if(prop == "cookies-accepted")
+		else if(prop == "night")
 		{
-			cookies_accepted = settings[prop];
-			if(cookies_accepted)
-				$("#cookie-notice").remove();
+			night_mode = settings[prop];
 		}
 	}
+	toggle_nightmode(night_mode);
 }
 
 function save_settings()
@@ -116,7 +117,7 @@ function toggle_background(set)
 		author_container.show();
 	else
 		author_container.hide()
-	load_backgrounds();
+	backgrounds_load();
 	save_settings();
 }
 
@@ -149,6 +150,8 @@ function set_background(bg, blur)
 		element.show();
 		$(".background-author").html('<a href="' + bg.url + '">Background image</a> by <a href="' + bg.author_url + '">' + bg.author_name + '</a>');
 		$(".background-author-container").show();
+		// Add blur to background
+		set_background_blur(blur, element);
 	}
 	else
 	{
@@ -157,11 +160,9 @@ function set_background(bg, blur)
 		element.hide();
 		$("background-author-container").hide();
 	}
-	// Add blur to background
-	set_background_blur(blur, element);
 }
 
-function load_backgrounds()
+function backgrounds_load()
 {
 	// If backgrounds are disabled, bail
 	if(!background_enabled)
@@ -362,8 +363,14 @@ function foundry_load()
 {
 	//foundry = foundry_test;
 	foundry = JSON.parse(localStorage.getItem("wftracker-foundry"));
-	var c = [];
+	if(!(foundry && foundry.length))
+	{
+		foundry = [];
+		$("#foundry-table tbody").html('<tr class="foundry-item"><td></td><td colspan="6">The list is empty.</td></tr>');
+		return;
+	}
 
+	var c = [];
 	for(let i = 0; i < foundry.length; ++i)
 	{
 		let e = foundry[i];
@@ -578,19 +585,92 @@ function foundry_form_put(item)
 	}
 }
 
+//#endregion
+
+//#region Foundry details
+
+function rarity_str(num)
+{
+	return ["common", "uncommon", "rare", "very rare", "legendary"][num];
+}
+
+function relic_str(relic, withRarity)
+{
+	return relic.era.replace(/^[a-z]/, ch => ch.toUpperCase()) + " " + relic.code.toUpperCase() + " relic (" + rarity_str(relic.rarity) + ")";
+	//return era.replace(/^[a-z]/, ch => ch.toUpperCase()) + " " + code.toUpperCase() + " relic";
+}
+
+function is_relic_drop(comp)
+{
+	return relic_data.parts.some(e => e.name.includes(comp));
+}
+
+function is_resource(comp)
+{
+	return resource_data.by_resource.some(e => e.name.includes(comp));
+}
+
 function foundry_details(item, num)
 {
 	let c = [];
 	c.push('<tr class="foundry-details" id="foundry-details-' + num + '">');
-	c.push('<td /><td>Locations</td>');
+	c.push('<td /><td></td><td class="foundry-details-component">');
 
+	// Blueprint
+	let bpname = item.name + " Blueprint";
+	if(is_relic_drop(bpname))
+	{
+		c.push('<ul>');
+		for(let r of relic_data.parts.filter(e => e.name.includes(bpname))[0].relics)
+		{
+			c.push('<li>' + relic_str(r) + '</li>');
+		}
+		c.push('</ul>');
+	}
+	c.push('</td>');
+	// Components
 	for(let i = 0; i < 4; ++i)
 	{
 		let comp = item.components[i];
+
 		if(comp)
 		{
+			let cname = item.name + " " + comp.name;
+			let locations = [];
+			if(is_relic_drop(cname))
+			{
+				try
+				{
+					for(let r of relic_data.parts.filter(e => e.name.includes(cname))[0].relics)
+					{
+						locations.push(relic_str(r));
+					}
+				}
+				catch(ex)
+				{
+					console.error(ex.error, cname);
+				}
+			}
+			else if(is_resource(comp.name))
+			{
+				try
+				{
+					for(let l of resource_data.by_resource.filter(e => e.name.toLowerCase().includes(comp.name.toLowerCase()))[0].locations)
+					{
+						locations.push(l.name + " (" + rarity_str(l.rarity) + ")");
+					}
+				}
+				catch(ex)
+				{
+
+				}
+			}
+
 			c.push('<td class="foundry-details-component"><ul>');
-			c.push('<li>Nothing yet</li>');
+			for(let l of locations)
+			{
+				c.push('<li>' + l + '</li>');
+			}
 			c.push('</td>');
 		}
 		else
@@ -617,12 +697,13 @@ $(document).ready(function(event)
 	}
 
 	// Initialize app
-	load_settings();
-	load_backgrounds();
+	settings_load();
+	backgrounds_load();
 	shortcuts_load();
 	wikia_load();
 	foundry_load();
 
+	// Load relic data
 	$.ajax(
 		{
 			url: "data/relics.json",
@@ -630,6 +711,7 @@ $(document).ready(function(event)
 			success: function(data)
 			{
 				relic_data = data;
+				console.log("relic data loaded");
 			},
 			error: function()
 			{
@@ -638,6 +720,7 @@ $(document).ready(function(event)
 		}
 	);
 
+	// Load item data
 	$.ajax(
 		{
 			url: "data/items.json",
@@ -663,7 +746,7 @@ $(document).ready(function(event)
 					}
 				}
 				datalist.append('</datalist>');
-				console.log("datalist loaded");
+				console.log("item datalist loaded");
 			},
 			error: function(a, b, c)
 			{
@@ -673,17 +756,48 @@ $(document).ready(function(event)
 		}
 	);
 
+	// Load resource data
+	$.ajax(
+		{
+			url: "data/resources.json",
+			mimeType: "application/json",
+			success: function(data)
+			{
+				resource_data = data;
+				let combined_data = ["Neuroptics","Systems","Chassis","Barrel","Receiver","Stock","Pouch","Link","Limb","String","Grip","Blade","Guard","Boot","Handle"];
+				for(let res of resource_data.by_resource)
+				{
+					combined_data.push(res.name);
+				}
+
+				let datalist = $("#part-names");
+				for(let res of combined_data)
+				{
+					datalist.append('<option>' + res + '</option>');
+				}
+
+				console.log("resources loaded");
+			},
+			error: function(a, b, c)
+			{
+				console.error(a, b, c);
+				item_data = [];
+			}
+		}
+	);
+
+
 	// Initialize elements
 	var clock_scroll = new PerfectScrollbar("#clock-sidebar", {maxScrollbarLength: 200});	
 	var settings_scroll = new PerfectScrollbar("#settings-sidebar", {maxScrollbarLength: 200});
 
 	// Add event handlers
 
-	$("#cookie-dismiss").click(function(event)
+	$("#cookie-consent").click(function(event)
 	{
 		cookies_accepted = true;
 		save_settings();
-		load_settings();
+		settings_load();
 	});
 
 	$("#sidebar-remover").click(function(event)
@@ -836,12 +950,14 @@ $(document).ready(function(event)
 	{
 		let blob = new Blob([JSON.stringify(
 			{
-				"wftracker-settings": JSON.parse(localStorage.getItem("wftracker-settings")),
-				"wftracker-shortcuts": shortcuts
+				"wftracker-settings": localStorage.getItem("wftracker-settings"),
+				"wftracker-shortcuts": localStorage.getItem("wftracker-shortcuts"),
+				"wftracker-wikia": localStorage.getItem("wftracker-wikia"),
+				"wftracker-foundry": localStorage.getItem("wftracker-foundry")
 			}
 		)], {type: "application/json"});
 		let url = URL.createObjectURL(blob);
-		let link = $("#data-management-download");
+		let link = $("#data-management-file-save");
 
 		link.attr("href", url);
 		link.attr("download", "warframe-tracker-data.json");
@@ -855,9 +971,31 @@ $(document).ready(function(event)
 		link.show();
 	});
 
+	$("#data-management-file-load").change(function(event)
+	{
+		console.log("change");
+		let reader = new FileReader();
+		reader.onload = function(event)
+		{
+			console.log("load");
+			let json = JSON.parse(event.target.result);
+			for(let prop in json)
+			{
+				console.log(prop);
+				localStorage.setItem(prop, json[prop]);
+			}
+			window.location.reload();
+		};
+		if(confirm("Importing the selected file will overwrite all currently stored data. Are you sure?"))
+		{
+			reader.readAsText(event.target.files[0]);
+		}
+	});
+
 	$("#data-management-import").click(function(event)
 	{
-		// TODO
+		event.preventDefault();
+		$("#data-management-file-load").trigger("click");
 	});
 
 	$("#data-management-delete").click(function(event)
@@ -868,6 +1006,7 @@ $(document).ready(function(event)
 			localStorage.removeItem("wftracker-shortcuts");
 			localStorage.removeItem("wftracker-wikia");
 			localStorage.removeItem("wftracker-foundry");
+			window.location.reload();
 		}
 	});
 
@@ -917,14 +1056,17 @@ $(document).ready(function(event)
 
 	$("#wikia-id").keydown(function(event)
 	{
-		let url = "https://warframe.wikia.com/wiki/" + $("#wikia-id").val().replace(" ", "_");
-		if(event.shiftKey)
+		if(event.key == "enter")
 		{
-			open(url, "_blank");
-		}
-		else
-		{
-			location.assign(url);
+			let url = "https://warframe.wikia.com/wiki/" + $("#wikia-id").val().replace(" ", "_");
+			if(event.shiftKey)
+			{
+				open(url, "_blank");
+			}
+			else
+			{
+				location.assign(url);
+			}
 		}
 	});
 
