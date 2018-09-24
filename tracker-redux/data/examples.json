@@ -1,0 +1,124 @@
+{
+    "relics.json": {
+        "relics": [
+            {
+                "era": "axi",
+                "code": "a1",
+                "drops": [
+                    {
+                        "name": "Trinity Prime Systems Blueprint",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Fragor Prime Head",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Braton Prime Stock",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Akstiletto Prime Barrel",
+                        "rarity": 1
+                    },
+                    {
+                        "name": "Dual Kamas Prime Handle",
+                        "rarity": 1
+                    },
+                    {
+                        "name": "Nikana Prime Blueprint",
+                        "rarity": 2
+                    }
+                ]
+            }
+        ],
+        "parts": [
+            {
+                "name": "Trinity Prime Systems Blueprint",
+                "relics": [
+                    {
+                        "era": "axi",
+                        "code": "a1",
+                        "rarity": 0
+                    },
+                    {
+                        "era": "axi",
+                        "code": "c2",
+                        "rarity": 0
+                    },
+                    {
+                        "era": "axi",
+                        "code": "v2",
+                        "rarity": 0
+                    },
+                    {
+                        "era": "axi",
+                        "code": "v3",
+                        "rarity": 0
+                    },
+                    {
+                        "era": "axi",
+                        "code": "v4",
+                        "rarity": 0
+                    },
+                    {
+                        "era": "neo",
+                        "code": "b1",
+                        "rarity": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "resources.json": {
+        "by_location": [
+            {
+                "name": "Mercury",
+                "resources": [
+                    "Morphics",
+                    "Ferrite",
+                    "Polymer bundle",
+                    "Detonite ampule"
+                ]
+            }
+        ],
+        "by_resource": [
+            {
+                "name": "Morphics",
+                "locations": [
+                    {
+                        "name": "Mercury",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Mars",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Phobos",
+                        "rarity": 1
+                    },
+                    {
+                        "name": "Europa",
+                        "rarity": 0
+                    },
+                    {
+                        "name": "Pluto",
+                        "rarity": 3
+                    }
+                ]
+            }
+        ]
+    },
+    "items.json": {
+        "items": [
+            {
+                "name": "Nikana",
+                "class": "melee",
+                "variants": [
+                    "Prime"
+                ]
+            }
+        ]
+    }
+}
