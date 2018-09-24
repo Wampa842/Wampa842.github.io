@@ -213,11 +213,6 @@
 				</table>
 			</div-->
 		</article>
-		<article class="panel" id="cookie-notice">
-			<p>This website doesn't use cookies, but it uses the <code>localStorage</code> object that stores data on the client device. Nothing personally identifiable is stored, and nothing is sent through the network to other hosts. <a href="localstorage.html">This article</a> goes into more detail about what kinds of data are stored in <code>localStorage</code>.</p>
-			<p>By using this website, you agree to its use of <code>localStorage</code>.</p>
-			<button class="full-width-button" id="cookie-dismiss">I agree.</button>
-		</article>
 	</main>
 	<!-- endregion -->
 	<!-- #region Sidebars -->
@@ -283,9 +278,15 @@
 	<div class="sidebar sidebar-hidden" id="data-management-sidebar">
 		<h3>Data management</h3>
 		<button class="full-width-button" id="data-management-export">Export data</button>
-		<a id="data-management-download" href="#" hidden>Click here to save the file</a>
+		<a id="data-management-file-save" href="#" hidden>Click here to save the file</a>
 		<button class="full-width-button" id="data-management-import">Import data</button>
+		<input type="file" id="data-management-file-load" accept="application/json" hidden>
 		<button class="full-width-button" id="data-management-delete">Delete data</button>
+	</div>
+	<div class="panel" id="cookie-notice">
+		<p>This website uses storage objects (HTML5 web storage), that are similar in function to cookies, to store user settings and data that is essential to the applications' functions. <b>Personal data is <u>not</u> stored.</b></u></p>
+		<p><a href="localstorage.html">Learn more</a></p>
+		<button class="full-width-button" id="cookie-consent">I consent to the use of web storage.</button>
 	</div>
 	<!-- endregion -->
 </body>

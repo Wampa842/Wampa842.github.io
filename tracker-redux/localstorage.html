@@ -3,25 +3,62 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>localStorage</title>
+    <title>Web storage information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    @font-face
+    {
+        font-family: 'roboto';
+        src: url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff') format('woff');
+        font-weight: 300;
+    }
+    main
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    span.code
+    {
+        font-family:'Courier New', Courier, monospace;
+    }
+    p
+    {
+        text-indent: 1em;
+    }
+    </style>
 </head>
 <body>
-    <h3>Does this website use cookies?</h3>
-    <p>The answer is both no and yes. Technically this website does not use <b>cookies</b>, but it uses HTML5 web storage objects - <b>localStorage</b> in particular.</p>
-    <h3>What is localStorage?</h3>
-    <p>localStorage is a JavaScript object that allows scripts to store arbitrary string (text) data locally, on the client browser. This data is persistent (doesn't get erased when a browser session ends) and doesn't expire. It's also restricted to a single domain.</p>
-    <h3>How is it different from cookies?</h3>
-    <p>In simple terms, cookies are used by the server while localStorage is used by the client.</p>
-    <p>When a client makes an HTTP request to the server, it automatically sends cookie data, like login details, for the server software (e.g. PHP or ASP.NET) to process.</p>
-    <p>In contrast, local data in localStorage is never sent automatically. It can only be used by the script that runs on the client browser.</p>
-    <p>That being said, it isn't impossible to send this data to a remote server through script-generated requests, but it's always up to the developer to implement such a feature.</p>
-    <h3>What kinds of data can be stored in localStorage?</h3>
-    <p>Anything that can be represented as text. This includes numbers, cleartext (unencrypted) strings, Base64-encoded data, ciphertext (encrypted data), or serialized JavaScript objects. It can be personally identifiable information, non-identifiable settings, whatever the developer wants to store.</p>
-    <h3>What kinds of data does this website store?</h3>
-    <p>User settings and the minimum amount of data that's required by the web applications. Personally identifiable data is never requested nor stored.</p>
-    <h3>What kidns of data does this website send to remote hosts?</h3>
-    <p>Nothing.</p>
-    <p>Stored data is only used locally and it's never sent to anyone else. No advertisements, no analytics, no user tracking. It's up to the user to transport the data between client browsers and devices, through the "Data Management" menu. The same menu allows the user to delete all stored data.</p>
+    <main>
+        <h3>Does this website use cookies?</h3>
+        <p>The answer is both no and yes. Technically this website does not use <b>cookies</b>, but it uses HTML5 web storage objects - <b><span class="code">localStorage</span></b> in particular.</p>
+
+        <h3>What is <span class="code">localStorage</span>?</h3>
+        <p><span class="code">localStorage</span> is a JavaScript object that allows scripts to store arbitrary string (text) data locally, on the client browser. This data is persistent (doesn't get erased when a browser session ends) and doesn't expire. It's also restricted to a single domain.</p>
+        <p><a href="https://en.wikipedia.org/wiki/Web_storage">Wikipedia article on Web Storage</a></p>
+        
+        <h3>How is it different from cookies?</h3>
+        <p>In simple terms, cookies are used by the server while <span class="code">localStorage</span> is used by the client.</p>
+        <p>When a client makes an HTTP request to the server, it automatically sends cookie data, like login details, for the server software (e.g. PHP or ASP.NET) to process. In contrast, local data in <span class="code">localStorage</span> is never sent automatically. It can only be used by the script that runs on the client browser. That being said, it isn't impossible to send this data to a remote server through script-generated requests, but it's always up to the developer to implement such a feature.</p>
+        
+        <h3>What kinds of data can be stored in <span class="code">localStorage</span>?</h3>
+        <p>From a technical perspective, anything that can be represented as text. This includes numbers, cleartext (unencrypted) strings, Base64-encoded data, ciphertext (encrypted data), or serialized JavaScript objects.</p>
+        <p>From a legal perspetive, this can be both personal and non-personal, anything the browser's scripting environment has access to, including but not limited to the cleartext content of input fields and system details exposed by the browser.</p>
+        
+        <h3>What kinds of data does this website store?</h3>
+        <p>User settings and the minimum amount of data that's required by the web applications. Personally identifiable data is never requested nor stored.</p>
+        
+        <h3>Where is the stored data located?</h3>
+        <p>Exclusively on the client browser. Data is never stored on the web host, other servers, other browsers, or any other devices or applications, whether local or remote, unless the user chooses to export the data to a file and import it in another browser.</p>
+
+        <h3>What kidns of data does this website send to remote hosts?</h3>
+        <p>Nothing.</p>
+        <p>Stored data is only used locally and it's never sent to anyone else. No advertisements, no analytics, no user tracking. It's up to the user to transport the data between client browsers and devices, through the "Data Management" menu. The same menu allows the user to delete all stored data.</p>
+        
+        <h3>Can I use the website without the storage?</h3>
+        <p>No.</p>
+        <p>The apps were designed with offline storage in mind and server-side storage and processing is not available on the hosting service (GitHub Pages). Local data storage is essential to the website's operation.</p>
+    </main>
 </body>
 </html>
