@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    input, textarea
+    {
+        height: 400px;
+        width: 600px;
+        vertical-align: top;
+    }
+
+    </style>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script>
+    const poe_rarity = 
+    {
+        
+        "Grokdrul": 0,
+        "Iradite": 0,
+        "Maprico": 0,
+        "Nistlepod": 0,
+        "Condroc wing": 1,
+        "Kuaka spinal claw": 1,
+        "Cetus wisp": 2,
+        "Breath of the Eidolon": 2,
+        "Eidolon shard": 4,
+        "Brilliant Eidolon shard": 4,
+        "Radiant Eidolon shard": 4,
+        "Coprun": 0,
+        "Ferros": 0,
+        "Auron": 1,
+        "Pyrol": 2,
+        "Azurite": 0,
+        "Devar": 0,
+        "Veridos": 1,
+        "Crimzian": 2,
+        "Nyth": 4,
+        "Sentirum": 4,
+        "Fish meat": 0,
+        "Fish oil": 0,
+        "Fish scales": 0,
+        "Mawfish bones": 0,
+        "Charc electroplax": 0,
+        "Khut-khut venom sac": 1,
+        "Yogwun stomach": 1,
+        "Mortus horn": 1,
+        "Goopolla spleen": 1,
+        "Tralok eyes": 2,
+        "Sharrac teeth": 2,
+        "Karkina antenna": 2,
+        "Murkray liver": 2,
+        "Norg brain": 3,
+        "Cuthol tendrils": 3,
+        "Seram beetle shell": 3
+    };
+
+    $(document).ready(function()
+    {
+        $("#process").click(function()
+        {
+            let data = JSON.parse($("#json-in").val());
+            let out = [];
+
+            for(let planet of data)
+            {
+                for(let i = 0; i < planet.resources.length; ++i)
+                {
+                    let res = planet.resources[i];
+                    let rarity = planet.name === "Plains of Eidolon" ? poe_rarity[res] : i;
+                    if(out.some(e => e.name == res))
+                    {
+                        out.filter(e => e.name == res)[0].locations.push({name: planet.name, rarity: rarity});
+                    }
+                    else
+                    {
+                        let e = {
+                            name: res,
+                            locations: [{name: planet.name, rarity: rarity}]
+                        };
+                        out.push(e);
+                    }
+                }
+            }
+
+            $("#json-out").text(JSON.stringify(out));
+        });
+    });
+    </script>
+</head>
+<body>
+    <textarea id="json-in"></textarea>
+    <textarea id="json-out"></textarea>
+    <br>
+    <button id="process">Go</button>
+</body>
+</html>

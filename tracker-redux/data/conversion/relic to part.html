@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    input, textarea
+    {
+        height: 400px;
+        width: 600px;
+        vertical-align: top;
+    }
+
+    </style>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script>
+    const example = 
+    [
+        {
+            name: "Trinity Prime Neuroptics",
+            relics:
+            [
+                {
+                    era: "axi",
+                    code: "c1",
+                    rarity: 0
+                }
+            ]
+        }
+    ];
+
+    $(document).ready(function()
+    {
+        $("#process").click(function()
+        {
+            let data = JSON.parse($("#json-in").val()).relics;
+            let out = [];
+
+            for(let relic of data)
+            {
+                for(let drop of relic.drops)
+                {
+                    if(out.some(e => e.name == drop.name))
+                    {
+                        let r = {
+                            era: relic.era,
+                            code: relic.code,
+                            rarity: drop.rarity
+                        };
+                        out.filter(e => e.name == drop.name)[0].relics.push(r);
+                    }
+                    else
+                    {
+                        let r = {
+                            era: relic.era,
+                            code: relic.code,
+                            rarity: drop.rarity
+                        };
+
+                        let d = {
+                            name: drop.name,
+                            relics: [r]
+                        };
+                        out.push(d);
+                    }
+                }
+            }
+
+            $("#json-out").text(JSON.stringify(out));
+        });
+    });
+    </script>
+</head>
+<body>
+    <textarea id="json-in"></textarea>
+    <textarea id="json-out"></textarea>
+    <br>
+    <button id="process">Go</button>
+</body>
+</html>
