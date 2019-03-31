@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="..\js\jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <label><input type="radio" class="filter-platform" name="filter-platform" id="filter-pc" checked> PC<br></label>
+        <label><input type="radio" class="filter-platform" name="filter-platform" id="filter-xb1"> XB1<br></label>
+        <label><input type="radio" class="filter-platform" name="filter-platform" id="filter-ps4"> PS4<br></label>
+        <select id="filter-class"></select>
+        <select id="filter-name"></select>
+        <select id="filter-rolled">
+            <option value="all">Rolled and unrolled</option>
+            <option value="yes">Rolled</option>
+            <option value="no">Unrolled</option>
+        </select>
+        <button class="filter-submit">Filter</button>
+    </header>
+    <main>
+        <span class="data-counter"></span>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="#" id="order-by-class" class="order-by-column">Class</a></th>
+                    <th><a href="#" id="order-by-name" class="order-by-column">Weapon</a></th>
+                    <th><a href="#" id="order-by-rolled" class="order-by-column">Rolled</a></th>
+                    <th><a href="#" id="order-by-min" class="order-by-column">Minimum</a></th>
+                    <th><a href="#" id="order-by-max" class="order-by-column">Maximum</a></th>
+                    <th><a href="#" id="order-by-mean" class="order-by-column">Mean</a></th>
+                    <th><a href="#" id="order-by-sigma" class="order-by-column">Standard deviation</a></th>
+                    <th><a href="#" id="order-by-pop" class="order-by-column">Relative popularity</a></th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+@font-face
+{
+	font-family: 'roboto';
+	src: url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff') format('woff');
+	font-weight: 300;
+}
+
+body
+{
+    font-family: 'roboto', Arial, Helvetica, sans-serif;
+}
+
+header
+{
+    padding: 10px;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th
+{
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+
+th a
+{
+    color: inherit;
+}
+
+tr:hover
+{
+    background-color: lightgray;
+}
+
+td
+{
+    padding: 3px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid lightgray;
+}
+
+.order-by
+{
+    font-style: italic;
+}
+
+.order-by-asc::after
+{
+    content: "\25b2";
+}
+
+.order-by-desc::after
+{
+    content: "\25bc";
+}
