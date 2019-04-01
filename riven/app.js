@@ -1,7 +1,8 @@
 const urls = [
     "http://n9e5v4d8.ssl.hwcdn.net/repos/weeklyRivensPC.json",
     "http://n9e5v4d8.ssl.hwcdn.net/repos/weeklyRivensPS4.json",
-    "http://n9e5v4d8.ssl.hwcdn.net/repos/weeklyRivensXB1.json"
+    "http://n9e5v4d8.ssl.hwcdn.net/repos/weeklyRivensXB1.json",
+    "http://n9e5v4d8.ssl.hwcdn.net/repos/weeklyRivensSWI.json"
 ];
 var redownload = true;
 
@@ -45,12 +46,6 @@ function loadData()
     if($("#filter-xb1").prop("checked")) platform = 1;
     if($("#filter-ps4").prop("checked")) platform = 2;
     if($("#filter-switch").prop("checked")) platform = 3;
-    
-    if(platform == 3)
-    {
-        alert("Data is unavailable for the Nintendo Switch.");
-        return;
-    }
     
     let url = "https://whatever-origin.herokuapp.com/get?callback=?&url=" + encodeURIComponent(urls[platform]);
     
